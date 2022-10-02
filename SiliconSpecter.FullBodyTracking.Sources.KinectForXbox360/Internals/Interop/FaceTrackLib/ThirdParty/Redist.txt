@@ -1,0 +1,23 @@
+Kinect for Windows Developer Toolkit Redistributable Code
+--------------------------------------------------------------------------------
+
+The following files may be redistributed:
+
+    - redist\Microsoft.Kinect.Toolkit.Interaction.dll
+    - redist\Microsoft.Kinect.Toolkit.BackgroundRemoval.dll
+
+    - redist\x86\FaceTrackData.dll
+    - redist\x86\FaceTrackLib.dll
+    - redist\x86\KinectFusion180_32.dll
+    - redist\x86\KinectInteraction180_32.dll
+    - redist\x86\KinectBackgroundRemoval180_32.dll
+
+    - redist\amd64\FaceTrackData.dll
+    - redist\amd64\FaceTrackLib.dll
+    - redist\amd64\KinectFusion180_64.dll
+    - redist\amd64\KinectInteraction180_64.dll
+    - redist\amd64\KinectBackgroundRemoval180_64.dll
+
+    - redist\Content\Web\Kinect-1.8.0.css
+    - redist\Content\Web\Kinect-1.8.0.js
+    - redist\Content\Web\KinectWorker-1.8.0.js

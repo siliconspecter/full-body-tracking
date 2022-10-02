@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30114.105
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Interfaces", "SiliconSpecter.FullBodyTracking.Interfaces\SiliconSpecter.FullBodyTracking.Interfaces.csproj", "{B437F884-25F9-4F92-9524-EEDF5494B1DD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360", "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360\SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.csproj", "{08D3B535-62EA-4000-AD50-51B21890D3BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests", "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests\SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests.csproj", "{02B39918-7E8A-447B-A493-146CCE5E6426}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B437F884-25F9-4F92-9524-EEDF5494B1DD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B437F884-25F9-4F92-9524-EEDF5494B1DD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B437F884-25F9-4F92-9524-EEDF5494B1DD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B437F884-25F9-4F92-9524-EEDF5494B1DD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{08D3B535-62EA-4000-AD50-51B21890D3BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08D3B535-62EA-4000-AD50-51B21890D3BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08D3B535-62EA-4000-AD50-51B21890D3BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08D3B535-62EA-4000-AD50-51B21890D3BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02B39918-7E8A-447B-A493-146CCE5E6426}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02B39918-7E8A-447B-A493-146CCE5E6426}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02B39918-7E8A-447B-A493-146CCE5E6426}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02B39918-7E8A-447B-A493-146CCE5E6426}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
