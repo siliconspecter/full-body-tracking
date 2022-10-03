@@ -471,7 +471,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       }
     }
 
-    private static Vector3? GetJointPositionIfAvailable(Skeleton skeleton, Joint joint)
+    private static Vector3? GetJointPositionIfAvailable(Internals.Interop.Kinect10.Skeleton skeleton, Joint joint)
     {
       var jointIndex = (int)joint;
 
@@ -492,7 +492,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       }
     }
 
-    private static Limb ExtractLimb(Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
+    private static Limb ExtractLimb(Internals.Interop.Kinect10.Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
     {
       var intermediatePosition = GetJointPositionIfAvailable(skeleton, intermediateJoint);
       var distalPosition = GetJointPositionIfAvailable(skeleton, distalJoint);
