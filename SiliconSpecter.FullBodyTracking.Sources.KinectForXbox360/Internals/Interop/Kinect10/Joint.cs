@@ -72,9 +72,9 @@ public enum Joint
   LeftAnkle = 14,
 
   /// <summary>
-  /// The left foot.
+  /// The tip of the middle toe on the left foot.
   /// </summary>
-  LeftFoot = 15,
+  LeftMiddleToeTip = 15,
 
   /// <summary>
   /// The right hip.
@@ -92,9 +92,9 @@ public enum Joint
   RightAnkle = 18,
 
   /// <summary>
-  /// The right foot.
+  /// The tip of the middle toe on the right foot.
   /// </summary>
-  RightFoot = 19,
+  RightMiddleToeTip = 19,
 
   /// <summary>
   /// The number of joints in total (not all are documented here).
