@@ -1,15 +1,18 @@
-namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.Kernel32;
+using System;
 
-/// <summary>
-/// Exposes native methods in kernel32.dll.
-/// </summary>
-public interface IKernel32
+namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.Kernel32
 {
   /// <summary>
-  /// Copies a specified number of <see cref="byte"/>s from one <see cref="IntPtr"/> to another.
+  /// Exposes native methods in kernel32.dll.
   /// </summary>
-  /// <param name="dest">The destination to copy to.</param>
-  /// <param name="src">The source to copy from.</param>
-  /// <param name="count">The number of <see cref="byte"/>s to copy.</param>
-  void CopyMemory(IntPtr dest, IntPtr src, uint count);
+  public interface IKernel32
+  {
+    /// <summary>
+    /// Copies a specified number of <see cref="byte"/>s from one <see cref="IntPtr"/> to another.
+    /// </summary>
+    /// <param name="dest">The destination to copy to.</param>
+    /// <param name="src">The source to copy from.</param>
+    /// <param name="count">The number of <see cref="byte"/>s to copy.</param>
+    void CopyMemory(IntPtr dest, IntPtr src, uint count);
+  }
 }

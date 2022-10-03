@@ -1,25 +1,27 @@
-﻿using System.Runtime.InteropServices;
+﻿using System;
+using System.Runtime.InteropServices;
 
-namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.FaceTrackLib;
-
-/// <inheritdoc />
-public sealed class FaceTrackLib : IFaceTrackLib
+namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.FaceTrackLib
 {
-  [DllImport("FaceTrackLib.dll", EntryPoint = "FTCreateFaceTracker")]
-  private static extern IFaceTracker FTCreateFaceTrackerImport(IntPtr reserved);
-
   /// <inheritdoc />
-  public IFaceTracker FTCreateFaceTracker(IntPtr reserved)
+  public sealed class FaceTrackLib : IFaceTrackLib
   {
-    return FTCreateFaceTrackerImport(reserved);
-  }
+    [DllImport("FaceTrackLib.dll", EntryPoint = "FTCreateFaceTracker")]
+    private static extern IFaceTracker FTCreateFaceTrackerImport(IntPtr reserved);
 
-  [DllImport("FaceTrackLib.dll", EntryPoint = "FTCreateImage")]
-  private static extern IImage FTCreateImageImport();
+    /// <inheritdoc />
+    public IFaceTracker FTCreateFaceTracker(IntPtr reserved)
+    {
+      return FTCreateFaceTrackerImport(reserved);
+    }
 
-  /// <inheritdoc />
-  public IImage FTCreateImage()
-  {
-    return FTCreateImageImport();
+    [DllImport("FaceTrackLib.dll", EntryPoint = "FTCreateImage")]
+    private static extern IImage FTCreateImageImport();
+
+    /// <inheritdoc />
+    public IImage FTCreateImage()
+    {
+      return FTCreateImageImport();
+    }
   }
 }

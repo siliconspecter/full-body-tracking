@@ -1,20 +1,21 @@
 using System.Runtime.InteropServices;
 
-namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop;
-
-/// <summary>
-/// A point in 2D space.
-/// </summary>
-[StructLayout(LayoutKind.Sequential, Pack = 4)]
-public struct Point
+namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop
 {
   /// <summary>
-  /// The position on the X axis.
+  /// A point in 2D space.
   /// </summary>
-  public int X;
+  [StructLayout(LayoutKind.Sequential, Pack = 4)]
+  public struct Point
+  {
+    /// <summary>
+    /// The position on the X axis.
+    /// </summary>
+    public int X;
 
-  /// <summary>
-  /// The position on the Y axis.
-  /// </summary>
-  public int Y;
+    /// <summary>
+    /// The position on the Y axis.
+    /// </summary>
+    public int Y;
+  }
 }
