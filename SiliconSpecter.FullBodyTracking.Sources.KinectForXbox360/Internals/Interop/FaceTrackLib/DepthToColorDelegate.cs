@@ -1,4 +1,4 @@
-namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Interop.FaceTrackLib;
+namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.FaceTrackLib;
 
 /// <summary>
 /// A callback given to the face tracking library which it can use to map depth image coordinates to color image coordinates.

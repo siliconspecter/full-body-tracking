@@ -1,4 +1,4 @@
-namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Interop.Kinect10;
+namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.Kinect10;
 
 
 /// <summary>
@@ -6,18 +6,18 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Interop.Kinec
 /// </summary>
 public enum SkeletonStatus
 {
-    /// <summary>
-    /// The Kinect does not see a <see cref="Skeleton"/>.
-    /// </summary>
-    NotTracked = 0,
+  /// <summary>
+  /// The Kinect does not see a <see cref="Skeleton"/>.
+  /// </summary>
+  NotTracked = 0,
 
-    /// <summary>
-    /// The Kinect is only tracking the <see cref="Skeleton.Position"/> of the <see cref="Skeleton"/>.
-    /// </summary>
-    PositionOnly = 1,
+  /// <summary>
+  /// The Kinect is only tracking the <see cref="Skeleton.Position"/> of the <see cref="Skeleton"/>.
+  /// </summary>
+  PositionOnly = 1,
 
-    /// <summary>
-    /// The Kinect is tracking the positions of the individual joints within the <see cref="Skeleton"/>.
-    /// </summary>
-    Tracked = 2,
+  /// <summary>
+  /// The Kinect is tracking the positions of the individual joints within the <see cref="Skeleton"/>.
+  /// </summary>
+  Tracked = 2,
 }
