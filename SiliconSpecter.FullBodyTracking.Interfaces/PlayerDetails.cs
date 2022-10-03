@@ -42,7 +42,7 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
     /// Negative values down to -1 indicate that the mouth is puckering.
     /// <see langword="null"/> when the data is unavailable.
     /// </summary>
-    public float? LipStretcher;
+    public float? MouthWidth;
 
     /// <summary>
     /// Details regarding the <see cref="Player"/>'s left arm.
