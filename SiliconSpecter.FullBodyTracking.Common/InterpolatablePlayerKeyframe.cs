@@ -56,5 +56,48 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// Details regarding the right arm.
     /// </summary>
     public InterpolatablePlayerKeyframeLimb RightLeg;
+
+    /// <summary>
+    /// The default value for a <see cref="InterpolatablePlayerKeyframe"/>.
+    /// </summary>
+    public static readonly InterpolatablePlayerKeyframe Default = new InterpolatablePlayerKeyframe
+    {
+      FacialAnimation = new FacialAnimation
+      {
+        Emote = Emote.Neutral,
+        LipRaised = 0,
+        JawLowered = 0,
+        MouthWidth = 0,
+      },
+      HipsPosition = Vector3.Zero,
+      HipsRotation = Quaternion.Identity,
+      ShouldersRotation = Quaternion.Identity,
+      HeadRotation = Quaternion.Identity,
+      FacingRotation = Quaternion.Identity,
+      LeftArm = new InterpolatablePlayerKeyframeLimb
+      {
+        Extension = new Vector3(0, -1, 0),
+        BendNormal = new Vector3(0, 0, -1),
+        TipNormal = new Vector3(0, -1, 0),
+      },
+      RightArm = new InterpolatablePlayerKeyframeLimb
+      {
+        Extension = new Vector3(0, -1, 0),
+        BendNormal = new Vector3(0, 0, -1),
+        TipNormal = new Vector3(0, -1, 0),
+      },
+      LeftLeg = new InterpolatablePlayerKeyframeLimb
+      {
+        Extension = new Vector3(0, -1, 0),
+        BendNormal = new Vector3(0, 0, -1),
+        TipNormal = new Vector3(0, 0, 1),
+      },
+      RightLeg = new InterpolatablePlayerKeyframeLimb
+      {
+        Extension = new Vector3(0, -1, 0),
+        BendNormal = new Vector3(0, 0, -1),
+        TipNormal = new Vector3(0, 0, 1),
+      }
+    };
   }
 }
