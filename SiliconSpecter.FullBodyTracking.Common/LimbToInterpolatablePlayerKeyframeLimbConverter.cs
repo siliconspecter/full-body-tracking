@@ -11,8 +11,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
     {
       var output = previousKeyframe ?? new InterpolatablePlayerKeyframeLimb
       {
-        ExtensionNormal = new Vector3(0, -1, 0),
-        ExtensionProportion = 1,
+        Extension = new Vector3(0, -1, 0),
         BendNormal = defaultBendNormal,
         TipNormal = defaultTipNormal,
       };
@@ -21,14 +20,14 @@ namespace SiliconSpecter.FullBodyTracking.Common
       {
         if (limb.ProximalPosition != limb.Extension.Value.DistalPosition)
         {
-          output.ExtensionNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.DistalPosition - limb.ProximalPosition, cameraToInverseFacingRotation));
-          output.ExtensionProportion = Math.Max(0, Math.Min(1, Vector3.Distance(limb.ProximalPosition, limb.Extension.Value.DistalPosition) / length));
+          var extensionNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.DistalPosition - limb.ProximalPosition, cameraToInverseFacingRotation));
+          output.Extension = extensionNormal * Math.Max(0, Math.Min(1, Vector3.Distance(limb.ProximalPosition, limb.Extension.Value.DistalPosition) / length));
 
           if (limb.Extension.Value.IntermediatePosition.HasValue)
           {
             var proximalToIntermediate = Vector3.Transform(limb.Extension.Value.IntermediatePosition.Value - limb.ProximalPosition, cameraToInverseFacingRotation);
 
-            var elbowDirection = proximalToIntermediate - output.ExtensionNormal * Vector3.Dot(output.ExtensionNormal, proximalToIntermediate);
+            var elbowDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
 
             if (elbowDirection.LengthSquared() > 0.000625f)
             {
