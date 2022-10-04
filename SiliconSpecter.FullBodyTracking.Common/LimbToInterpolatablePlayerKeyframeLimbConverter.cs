@@ -7,21 +7,14 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public sealed class LimbToInterpolatablePlayerKeyframeLimbConverter : ILimbToInterpolatablePlayerKeyframeLimbConverter
   {
     /// <inheritdoc />
-    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb? previousKeyframe, float length, Vector3 defaultBendNormal, Vector3 defaultTipNormal, Quaternion cameraToInverseFacingRotation)
+    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb previousKeyframe, float length, Quaternion cameraToInverseFacingRotation)
     {
-      var output = previousKeyframe ?? new InterpolatablePlayerKeyframeLimb
-      {
-        Extension = new Vector3(0, -1, 0),
-        BendNormal = defaultBendNormal,
-        TipNormal = defaultTipNormal,
-      };
-
       if (limb.Extension.HasValue)
       {
         if (limb.ProximalPosition != limb.Extension.Value.DistalPosition)
         {
           var extensionNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.DistalPosition - limb.ProximalPosition, cameraToInverseFacingRotation));
-          output.Extension = extensionNormal * Math.Max(0, Math.Min(1, Vector3.Distance(limb.ProximalPosition, limb.Extension.Value.DistalPosition) / length));
+          previousKeyframe.Extension = extensionNormal * Math.Max(0, Math.Min(1, Vector3.Distance(limb.ProximalPosition, limb.Extension.Value.DistalPosition) / length));
 
           if (limb.Extension.Value.IntermediatePosition.HasValue)
           {
@@ -31,18 +24,18 @@ namespace SiliconSpecter.FullBodyTracking.Common
 
             if (elbowDirection.LengthSquared() > 0.000625f)
             {
-              output.BendNormal = Vector3.Normalize(elbowDirection);
+              previousKeyframe.BendNormal = Vector3.Normalize(elbowDirection);
             }
           }
         }
 
         if (limb.Extension.Value.TipPosition != limb.Extension.Value.DistalPosition)
         {
-          output.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.TipPosition - limb.Extension.Value.DistalPosition, cameraToInverseFacingRotation));
+          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.TipPosition - limb.Extension.Value.DistalPosition, cameraToInverseFacingRotation));
         }
       }
 
-      return output;
+      return previousKeyframe;
     }
   }
 }
