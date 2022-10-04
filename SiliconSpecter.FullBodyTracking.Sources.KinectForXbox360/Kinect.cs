@@ -36,7 +36,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
     private bool _stopWorker = false;
     private Thread _worker;
     private Dictionary<uint, Player> _players = new Dictionary<uint, Player>();
-    private SortedSet<uint> _identifiersOfPlayersTrackedInDetail = new SortedSet<uint>();
+    private HashSet<uint> _identifiersOfPlayersTrackedInDetail = new HashSet<uint>();
     private readonly object _lock = new Object();
 
     private int DepthToColorCallback(uint depthFrameWidth, uint depthFrameHeight, uint colorFrameWidth, uint colorFrameHeight, float zoomFactor, Point viewOffset, int depthX, int depthY, ushort depthZ, out int colorX, out int colorY)
@@ -72,6 +72,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       var identifiersOfPlayersToRemoveOrAdded = new HashSet<uint>();
       var resultsByPlayerIdentifiers = new Dictionary<uint, IResult>();
       var animationUnitCoefficients = new float[(int)AnimationUnit.Count];
+      var identifiersOfPlayersTrackedInDetail = new uint[2];
 
       try
       {
@@ -465,6 +466,41 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
           else
           {
             Thread.Sleep(20);
+          }
+
+          var changed = false;
+
+          lock (_lock)
+          {
+            for (var i = 0; i < identifiersOfPlayersTrackedInDetail.Length; i++)
+            {
+              if (identifiersOfPlayersTrackedInDetail[i] != 0 && !_identifiersOfPlayersTrackedInDetail.Contains(identifiersOfPlayersTrackedInDetail[i]))
+              {
+                identifiersOfPlayersTrackedInDetail[i] = 0;
+                changed = true;
+              }
+
+              if (identifiersOfPlayersTrackedInDetail[i] == 0)
+              {
+                var next = _identifiersOfPlayersTrackedInDetail.Except(identifiersOfPlayersTrackedInDetail).Cast<uint?>().FirstOrDefault();
+
+                if (next.HasValue)
+                {
+                  identifiersOfPlayersTrackedInDetail[i] = next.Value;
+                  changed = true;
+                }
+              }
+            }
+          }
+
+          if (changed)
+          {
+            var setTrackedSkeletonsResult = _sensor.NuiSkeletonSetTrackedSkeletons(identifiersOfPlayersTrackedInDetail);
+
+            if (setTrackedSkeletonsResult != 0)
+            {
+              throw new Exception($"Failed to set tracked skeletons; error code {setTrackedSkeletonsResult}.");
+            }
           }
         }
       }
