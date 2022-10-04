@@ -8,12 +8,12 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public struct PlayerDetails
   {
     /// <summary>
-    /// When known, the normal from the bottom to the top of the <see cref="Player"/>'s head, in camera space, otherwise, <see langword="null"/>.
+    /// When known, the normal from the bottom to the top of the <see cref="Player"/>'s head, in camera space, if known, otherwise, <see langword="null"/>.
     /// </summary>
     public Vector3? HeadUpNormal;
 
     /// <summary>
-    /// When known, the normal from the back to the front of the <see cref="Player"/>'s head, in camera space, otherwise, <see langword="null"/>.
+    /// When known, the normal from the back to the front of the <see cref="Player"/>'s head, in camera space, if known, otherwise, <see langword="null"/>.
     /// </summary>
     public Vector3? HeadForwardNormal;
 
