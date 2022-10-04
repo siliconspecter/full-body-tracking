@@ -36,7 +36,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
     private bool _stopWorker = false;
     private Thread _worker;
     private Dictionary<uint, Player> _players = new Dictionary<uint, Player>();
-    private SortedSet<uint> _identifiersOfPlayersTrackedInDetail = new SortedSet<uint>();
+    private HashSet<uint> _identifiersOfPlayersTrackedInDetail = new HashSet<uint>();
     private readonly object _lock = new Object();
 
     private int DepthToColorCallback(uint depthFrameWidth, uint depthFrameHeight, uint colorFrameWidth, uint colorFrameHeight, float zoomFactor, Point viewOffset, int depthX, int depthY, ushort depthZ, out int colorX, out int colorY)
@@ -72,6 +72,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       var identifiersOfPlayersToRemoveOrAdded = new HashSet<uint>();
       var resultsByPlayerIdentifiers = new Dictionary<uint, IResult>();
       var animationUnitCoefficients = new float[(int)AnimationUnit.Count];
+      var identifiersOfPlayersTrackedInDetail = new uint[2];
 
       try
       {
@@ -357,10 +358,8 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
                     Vector3? headUpNormal = null;
                     Vector3? headForwardNormal = null;
-                    Emote? emote = null;
-                    float? lipRaised = null;
-                    float? jawLowered = null;
-                    float? mouthWidth = null;
+
+                    FacialAnimation? facialAnimation = null;
 
                     if (result == null)
                     {
@@ -382,24 +381,28 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
                       if (auPointer != IntPtr.Zero)
                       {
+                        var facialAnimationValue = new FacialAnimation();
+
                         Marshal.Copy(auPointer, animationUnitCoefficients, 0, Math.Min((int)numberOfAnimationUnits, (int)AnimationUnit.Count));
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.LipRaiser)
                         {
-                          lipRaised = animationUnitCoefficients[(int)AnimationUnit.LipRaiser];
+                          facialAnimationValue.LipRaised = animationUnitCoefficients[(int)AnimationUnit.LipRaiser];
                         }
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.JawLower)
                         {
-                          jawLowered = animationUnitCoefficients[(int)AnimationUnit.JawLower];
+                          facialAnimationValue.JawLowered = animationUnitCoefficients[(int)AnimationUnit.JawLower];
                         }
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.LipStretcher)
                         {
-                          mouthWidth = animationUnitCoefficients[(int)AnimationUnit.LipStretcher];
+                          facialAnimationValue.MouthWidth = animationUnitCoefficients[(int)AnimationUnit.LipStretcher];
                         }
 
                         // TODO: Determine emote.
+
+                        facialAnimation = facialAnimationValue;
                       }
                     }
 
@@ -410,13 +413,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                       {
                         HeadUpNormal = headUpNormal,
                         HeadForwardNormal = headForwardNormal,
-                        FacialAnimation = new FacialAnimation
-                        {
-                          Emote = emote,
-                          LipRaised = lipRaised,
-                          JawLowered = jawLowered,
-                          MouthWidth = mouthWidth,
-                        },
+                        FacialAnimation = facialAnimation,
                         LeftArm = ExtractLimb(skeleton, leftShoulder.Value, Joint.LeftElbow, Joint.LeftWrist, Joint.LeftMiddleFingertip),
                         RightArm = ExtractLimb(skeleton, rightShoulder.Value, Joint.RightElbow, Joint.RightWrist, Joint.RightMiddleFingertip),
                         LeftLeg = ExtractLimb(skeleton, leftHip.Value, Joint.LeftKnee, Joint.LeftAnkle, Joint.LeftMiddleToeTip),
@@ -465,6 +462,41 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
           else
           {
             Thread.Sleep(20);
+          }
+
+          var changed = false;
+
+          lock (_lock)
+          {
+            for (var i = 0; i < identifiersOfPlayersTrackedInDetail.Length; i++)
+            {
+              if (identifiersOfPlayersTrackedInDetail[i] != 0 && !_identifiersOfPlayersTrackedInDetail.Contains(identifiersOfPlayersTrackedInDetail[i]))
+              {
+                identifiersOfPlayersTrackedInDetail[i] = 0;
+                changed = true;
+              }
+
+              if (identifiersOfPlayersTrackedInDetail[i] == 0)
+              {
+                var next = _identifiersOfPlayersTrackedInDetail.Except(identifiersOfPlayersTrackedInDetail).Cast<uint?>().FirstOrDefault();
+
+                if (next.HasValue)
+                {
+                  identifiersOfPlayersTrackedInDetail[i] = next.Value;
+                  changed = true;
+                }
+              }
+            }
+          }
+
+          if (changed)
+          {
+            var setTrackedSkeletonsResult = _sensor.NuiSkeletonSetTrackedSkeletons(identifiersOfPlayersTrackedInDetail);
+
+            if (setTrackedSkeletonsResult != 0)
+            {
+              throw new Exception($"Failed to set tracked skeletons; error code {setTrackedSkeletonsResult}.");
+            }
           }
         }
       }
