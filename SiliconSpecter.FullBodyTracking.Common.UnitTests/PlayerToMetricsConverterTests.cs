@@ -8,6 +8,17 @@ namespace SiliconSpecter.FullBodyTracking.Common.UnitTests;
 public sealed class PlayerToMetricsConverterTests
 {
   [TestMethod]
+  public void ExposesInjectedDependencies()
+  {
+    var limbMeasurer = new Mock<ILimbMeasurer>();
+
+    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
+
+    Assert.AreSame(limbMeasurer.Object, playerToMetricsConverter.LimbMeasurer);
+    limbMeasurer.VerifyNoOtherCalls();
+  }
+
+  [TestMethod]
   public void MeasuresLimbsWithoutAPreviousSetOfMetricsOrDetails()
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
