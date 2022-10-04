@@ -58,7 +58,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to create an instance of Kinect \"Test Unique Identifier\"; no instance was output.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -88,7 +88,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to initialize the Kinect; error code 14234.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -129,7 +129,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to set the Kinect's angle; error code 14234.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -176,7 +176,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to get a coordinate mapper; error code 14234.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -222,7 +222,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to get a coordinate mapper; no instance was output.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -269,7 +269,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to enable the Kinect's skeleton tracking; error code 3489348.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -317,7 +317,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to enable the Kinect's color stream; error code 3493.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -365,7 +365,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to enable the Kinect's color stream; no instance was output.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -413,7 +413,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to enable the Kinect's depth stream; error code 3493.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -461,7 +461,7 @@ public sealed class KinectTests
       Assert.AreEqual("Failed to enable the Kinect's depth stream; no instance was output.", exception.Message);
       Assert.IsNull(exception.InnerException);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
@@ -503,9 +503,9 @@ public sealed class KinectTests
 
     using (new Kinect(faceTrackLib.Object, kernel32.Object, kinect10.Object, "Test Unique Identifier", -14))
     {
-      Thread.Sleep(5000);
+      Thread.Sleep(500);
     }
-    Thread.Sleep(5000);
+    Thread.Sleep(500);
 
     faceTrackLib.VerifyNoOtherCalls();
     kernel32.VerifyNoOtherCalls();
