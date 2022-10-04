@@ -358,10 +358,8 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
                     Vector3? headUpNormal = null;
                     Vector3? headForwardNormal = null;
-                    Emote? emote = null;
-                    float? lipRaised = null;
-                    float? jawLowered = null;
-                    float? mouthWidth = null;
+
+                    FacialAnimation? facialAnimation = null;
 
                     if (result == null)
                     {
@@ -383,24 +381,28 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
                       if (auPointer != IntPtr.Zero)
                       {
+                        var facialAnimationValue = new FacialAnimation();
+
                         Marshal.Copy(auPointer, animationUnitCoefficients, 0, Math.Min((int)numberOfAnimationUnits, (int)AnimationUnit.Count));
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.LipRaiser)
                         {
-                          lipRaised = animationUnitCoefficients[(int)AnimationUnit.LipRaiser];
+                          facialAnimationValue.LipRaised = animationUnitCoefficients[(int)AnimationUnit.LipRaiser];
                         }
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.JawLower)
                         {
-                          jawLowered = animationUnitCoefficients[(int)AnimationUnit.JawLower];
+                          facialAnimationValue.JawLowered = animationUnitCoefficients[(int)AnimationUnit.JawLower];
                         }
 
                         if (numberOfAnimationUnits > (int)AnimationUnit.LipStretcher)
                         {
-                          mouthWidth = animationUnitCoefficients[(int)AnimationUnit.LipStretcher];
+                          facialAnimationValue.MouthWidth = animationUnitCoefficients[(int)AnimationUnit.LipStretcher];
                         }
 
                         // TODO: Determine emote.
+
+                        facialAnimation = facialAnimationValue;
                       }
                     }
 
@@ -411,13 +413,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                       {
                         HeadUpNormal = headUpNormal,
                         HeadForwardNormal = headForwardNormal,
-                        FacialAnimation = new FacialAnimation
-                        {
-                          Emote = emote,
-                          LipRaised = lipRaised,
-                          JawLowered = jawLowered,
-                          MouthWidth = mouthWidth,
-                        },
+                        FacialAnimation = facialAnimation,
                         LeftArm = ExtractLimb(skeleton, leftShoulder.Value, Joint.LeftElbow, Joint.LeftWrist, Joint.LeftMiddleFingertip),
                         RightArm = ExtractLimb(skeleton, rightShoulder.Value, Joint.RightElbow, Joint.RightWrist, Joint.RightMiddleFingertip),
                         LeftLeg = ExtractLimb(skeleton, leftHip.Value, Joint.LeftKnee, Joint.LeftAnkle, Joint.LeftMiddleToeTip),

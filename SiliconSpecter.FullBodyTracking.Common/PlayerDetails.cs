@@ -18,9 +18,9 @@ namespace SiliconSpecter.FullBodyTracking.Common
     public Vector3? HeadForwardNormal;
 
     /// <summary>
-    /// The current facial animation.
+    /// The current facial animation, if known, otherwise, <see langword="null"/>.
     /// </summary>
-    public FacialAnimation FacialAnimation;
+    public FacialAnimation? FacialAnimation;
 
     /// <summary>
     /// Details regarding the <see cref="Player"/>'s left arm.

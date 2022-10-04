@@ -52,7 +52,6 @@ public sealed class PlayerToMetricsConverterTests
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
       Details = new PlayerDetails
       {
-        FacialAnimation = new FacialAnimation(),
         LeftArm = leftArm,
         RightArm = rightArm,
         LeftLeg = leftLeg,
@@ -129,7 +128,6 @@ public sealed class PlayerToMetricsConverterTests
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
       Details = new PlayerDetails
       {
-        FacialAnimation = new FacialAnimation(),
         LeftArm = leftArm,
         RightArm = rightArm,
         LeftLeg = leftLeg,
