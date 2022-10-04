@@ -8,17 +8,17 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
   public struct LimbExtension
   {
     /// <summary>
-    /// The position of the arm's elbow joint/leg's knee joint, in world space, if known, otherwise, <see langword="null"/>.
+    /// The position of the arm's elbow joint/leg's knee joint, in camera space, if known, otherwise, <see langword="null"/>.
     /// </summary>
     public Vector3? IntermediatePosition;
 
     /// <summary>
-    /// The position of the arm's wrist joint/leg's ankle joint, in world space.
+    /// The position of the arm's wrist joint/leg's ankle joint, in camera space.
     /// </summary>
     public Vector3 DistalPosition;
 
     /// <summary>
-    /// The position of the arm's middle fingertip/foot's middle toetip, in world space.
+    /// The position of the arm's middle fingertip/foot's middle toetip, in camera space.
     /// </summary>
     public Vector3 TipPosition;
   }

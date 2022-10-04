@@ -2,19 +2,19 @@
 
 namespace SiliconSpecter.FullBodyTracking.Interfaces
 {
+  /// <summary>
+  /// Details regarding a <see cref="Player"/>'s arm or leg.
+  /// </summary>
+  public struct Limb
+  {
     /// <summary>
-    /// Details regarding a <see cref="Player"/>'s arm or leg.
+    /// The position of the arm's shoulder joint/leg's hip joint, in camera space.
     /// </summary>
-    public struct Limb
-    {
-        /// <summary>
-        /// The position of the arm's shoulder joint/leg's hip joint, in world space.
-        /// </summary>
-        public Vector3 ProximalPosition;
+    public Vector3 ProximalPosition;
 
-        /// <summary>
-        /// Details regarding the <see cref="Limb"/>'s extension, if known, otherwise, <see langword="null"/>.
-        /// </summary>
-        public LimbExtension? Extension;
-    }
+    /// <summary>
+    /// Details regarding the <see cref="Limb"/>'s extension, if known, otherwise, <see langword="null"/>.
+    /// </summary>
+    public LimbExtension? Extension;
+  }
 }

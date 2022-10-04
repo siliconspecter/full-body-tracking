@@ -8,7 +8,7 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
   public struct Bone
   {
     /// <summary>
-    /// The position of the bone, in world space.
+    /// The position of the bone, in meters, in world space.
     /// </summary>
     public Vector3 Position;
 

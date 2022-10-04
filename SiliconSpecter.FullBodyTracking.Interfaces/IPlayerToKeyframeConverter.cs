@@ -1,4 +1,4 @@
-using System;
+using System.Numerics;
 
 namespace SiliconSpecter.FullBodyTracking.Interfaces
 {
@@ -11,9 +11,12 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
     /// Converts a given <see cref="Player"/> to an equivalent <see cref="InterpolatablePlayerKeyframe"/>.
     /// </summary>
     /// <param name="player">The <see cref="Player"/> to convert to a <see cref="InterpolatablePlayerKeyframe"/>.</param>
+    /// <param name="keyframe">The previous <see cref="InterpolatablePlayerKeyframe"/>, if any, otherwise, <see langword="null"/>.</param>
     /// <param name="metrics">The <see cref="Metrics"/> of the actor.</param>
+    /// <param name="cameraPosition">The position of the camera, in meters.</param>
+    /// <param name="cameraRotation">The rotation of the camera.</param>
     /// <returns>The <see cref="InterpolatablePlayerKeyframe"/> converted from the given <paramref name="player"/>.</returns>
     /// <exception cref="Exception">Thrown when <see cref="Player.Details"/> is <see langword="null"/>.</exception>
-    InterpolatablePlayerKeyframe Convert(Player player, Metrics metrics);
+    InterpolatablePlayerKeyframe Convert(Player player, InterpolatablePlayerKeyframe? previousKeyframe, Metrics metrics, Vector3 cameraPosition, Quaternion cameraRotation);
   }
 }

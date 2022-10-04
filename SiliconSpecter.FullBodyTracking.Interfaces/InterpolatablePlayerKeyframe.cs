@@ -13,7 +13,7 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
     public FacialAnimation FacialAnimation;
 
     /// <summary>
-    /// The position of the hips, in world space.
+    /// The position of the hips, in meters, in world space.
     /// </summary>
     public Vector3 HipsPosition;
 
@@ -38,23 +38,23 @@ namespace SiliconSpecter.FullBodyTracking.Interfaces
     public Quaternion FacingRotation;
 
     /// <summary>
-    /// Details regarding the left arm, if known, otherwise, <see langword="null"/>.
+    /// Details regarding the left arm.
     /// </summary>
-    public InterpolatablePlayerKeyframeLimb? LeftArm;
+    public InterpolatablePlayerKeyframeLimb LeftArm;
 
     /// <summary>
-    /// Details regarding the right arm, if known, otherwise, <see langword="null"/>.
+    /// Details regarding the right arm.
     /// </summary>
-    public InterpolatablePlayerKeyframeLimb? RightArm;
+    public InterpolatablePlayerKeyframeLimb RightArm;
 
     /// <summary>
-    /// Details regarding the left leg, if known, otherwise, <see langword="null"/>.
+    /// Details regarding the left leg.
     /// </summary>
-    public InterpolatablePlayerKeyframeLimb? LeftLeg;
+    public InterpolatablePlayerKeyframeLimb LeftLeg;
 
     /// <summary>
-    /// Details regarding the right arm, if known, otherwise, <see langword="null"/>.
+    /// Details regarding the right arm.
     /// </summary>
-    public InterpolatablePlayerKeyframeLimb? RightLeg;
+    public InterpolatablePlayerKeyframeLimb RightLeg;
   }
 }
