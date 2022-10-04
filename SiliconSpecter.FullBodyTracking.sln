@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTrac
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests", "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests\SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests.csproj", "{02B39918-7E8A-447B-A493-146CCE5E6426}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Common.UnitTests", "SiliconSpecter.FullBodyTracking.Common.UnitTests\SiliconSpecter.FullBodyTracking.Common.UnitTests.csproj", "{23F42667-57FE-4875-835F-267AF9E1CE9D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{02B39918-7E8A-447B-A493-146CCE5E6426}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02B39918-7E8A-447B-A493-146CCE5E6426}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{02B39918-7E8A-447B-A493-146CCE5E6426}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23F42667-57FE-4875-835F-267AF9E1CE9D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23F42667-57FE-4875-835F-267AF9E1CE9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23F42667-57FE-4875-835F-267AF9E1CE9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23F42667-57FE-4875-835F-267AF9E1CE9D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
