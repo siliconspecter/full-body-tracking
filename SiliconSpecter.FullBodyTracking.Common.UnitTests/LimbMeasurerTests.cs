@@ -61,4 +61,25 @@ public sealed class LimbMeasurerTests
 
     Assert.AreEqual(50.84082f, actual, 0.0001f);
   }
+
+  [TestMethod]
+  public void ReturnsPreviousLengthWhenZeroLength()
+  {
+    var limb = new Limb
+    {
+      ProximalPosition = new Vector3(8.1f, 10.4f, -3.3f),
+      Extension = new LimbExtension
+      {
+        IntermediatePosition = new Vector3(8.1f, 10.4f, -3.3f),
+        DistalPosition = new Vector3(8.1f, 10.4f, -3.3f),
+        TipPosition = new Vector3(5.7f, 1.4f, 2.2f),
+      },
+    };
+    var previousLength = 11.3f;
+    var limbMeasurer = new LimbMeasurer();
+
+    var actual = limbMeasurer.Measure(limb, previousLength);
+
+    Assert.AreEqual(previousLength, actual);
+  }
 }

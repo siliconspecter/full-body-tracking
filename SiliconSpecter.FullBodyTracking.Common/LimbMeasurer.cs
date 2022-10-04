@@ -8,7 +8,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// <inheritdoc />
     public float Measure(Limb limb, float previousLength)
     {
-      if (!limb.Extension.HasValue || !limb.Extension.Value.IntermediatePosition.HasValue)
+      if (!limb.Extension.HasValue || !limb.Extension.Value.IntermediatePosition.HasValue || (limb.ProximalPosition == limb.Extension.Value.IntermediatePosition.Value && limb.ProximalPosition == limb.Extension.Value.DistalPosition))
       {
         return previousLength;
       }
