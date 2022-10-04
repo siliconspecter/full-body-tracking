@@ -1,4 +1,4 @@
-﻿namespace SiliconSpecter.FullBodyTracking.Interfaces
+﻿namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Information regarding the actor controlling an avatar.

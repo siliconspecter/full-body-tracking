@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// A limb within a keyframe of a player's data which can be interpolated.

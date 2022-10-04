@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Details regarding the extension of a <see cref="Player"/>'s <see cref="Limb"/>.

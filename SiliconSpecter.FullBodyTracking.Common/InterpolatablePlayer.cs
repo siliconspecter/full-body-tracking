@@ -1,4 +1,4 @@
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// A player which has been converted into a format which can be interpolated.

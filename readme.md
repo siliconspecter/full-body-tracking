@@ -12,5 +12,5 @@ The license file can be found [here](./license).
 
 ## Projects
 
-- [SiliconSpecter.FullBodyTracking.Interfaces](./SiliconSpecter.FullBodyTracking.Interfaces) - Common interfaces between the components of this library.
+- [SiliconSpecter.FullBodyTracking.Common](./SiliconSpecter.FullBodyTracking.Common) - Common data types, interfaces and implementations shared between the other projects of this library.
 - [SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360) - Implements the source interface for the Kinect for Xbox 360.  You will need the Kinect SDK v1.8 installed to use this; the [face tracking library is included](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360/Interop/FaceTrackLib/ThirdParty) and must be loaded in some manner before attempting to use this project (how this done varies by operating environment).  Unit tests can be found in [SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests).

@@ -1,4 +1,4 @@
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// A skeleton of <see cref="Bone"/>s.

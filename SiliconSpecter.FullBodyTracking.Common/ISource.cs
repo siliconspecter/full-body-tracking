@@ -1,6 +1,6 @@
 using System;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Represents a full-body tracking system.

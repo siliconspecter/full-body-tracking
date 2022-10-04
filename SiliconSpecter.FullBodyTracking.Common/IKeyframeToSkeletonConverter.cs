@@ -1,6 +1,6 @@
 using System;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Converts <see cref="InterpolatablePlayerKeyframe"/>s to <see cref="Skeleton"/>s.

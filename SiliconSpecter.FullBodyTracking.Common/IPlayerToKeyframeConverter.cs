@@ -1,6 +1,6 @@
 using System.Numerics;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Converts <see cref="Player"/>s to <see cref="InterpolatablePlayerKeyframe"/>s.

@@ -1,4 +1,4 @@
-﻿namespace SiliconSpecter.FullBodyTracking.Interfaces
+﻿namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// The emote currently being displayed by a <see cref="Player"/>.

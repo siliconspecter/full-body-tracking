@@ -1,6 +1,6 @@
 using System;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Converts <see cref="Player"/>s to <see cref="Metrics"/>.

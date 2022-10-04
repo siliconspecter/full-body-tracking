@@ -1,6 +1,6 @@
 ﻿using System.Numerics;
 
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Detailed information regarding a <see cref="Player"/> being tracked.

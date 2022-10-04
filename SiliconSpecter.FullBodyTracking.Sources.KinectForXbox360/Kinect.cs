@@ -1,4 +1,4 @@
-using SiliconSpecter.FullBodyTracking.Interfaces;
+using SiliconSpecter.FullBodyTracking.Common;
 using SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop;
 using SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.FaceTrackLib;
 using SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.Internals.Interop.Kernel32;

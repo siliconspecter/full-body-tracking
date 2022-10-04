@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Interfaces", "SiliconSpecter.FullBodyTracking.Interfaces\SiliconSpecter.FullBodyTracking.Interfaces.csproj", "{B437F884-25F9-4F92-9524-EEDF5494B1DD}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Common", "SiliconSpecter.FullBodyTracking.Common\SiliconSpecter.FullBodyTracking.Common.csproj", "{B437F884-25F9-4F92-9524-EEDF5494B1DD}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360", "SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360\SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.csproj", "{08D3B535-62EA-4000-AD50-51B21890D3BA}"
 EndProject

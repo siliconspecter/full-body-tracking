@@ -1,4 +1,4 @@
-namespace SiliconSpecter.FullBodyTracking.Interfaces
+namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
   /// Interpolates between <see cref="InterpolatablePlayerKeyframe"/>s.

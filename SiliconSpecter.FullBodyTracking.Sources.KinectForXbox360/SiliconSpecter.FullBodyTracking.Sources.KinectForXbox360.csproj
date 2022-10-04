@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <ItemGroup>
-    <ProjectReference Include="..\SiliconSpecter.FullBodyTracking.Interfaces\SiliconSpecter.FullBodyTracking.Interfaces.csproj" />
+    <ProjectReference Include="..\SiliconSpecter.FullBodyTracking.Common\SiliconSpecter.FullBodyTracking.Common.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
