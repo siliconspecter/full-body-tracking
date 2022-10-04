@@ -1,5 +1,3 @@
-using System;
-
 namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <inheritdoc />
