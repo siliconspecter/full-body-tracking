@@ -410,10 +410,13 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                       {
                         HeadUpNormal = headUpNormal,
                         HeadForwardNormal = headForwardNormal,
-                        Emote = emote,
-                        LipRaised = lipRaised,
-                        JawLowered = jawLowered,
-                        MouthWidth = mouthWidth,
+                        FacialAnimation = new FacialAnimation
+                        {
+                          Emote = emote,
+                          LipRaised = lipRaised,
+                          JawLowered = jawLowered,
+                          MouthWidth = mouthWidth,
+                        },
                         LeftArm = ExtractLimb(skeleton, leftShoulder.Value, Joint.LeftElbow, Joint.LeftWrist, Joint.LeftMiddleFingertip),
                         RightArm = ExtractLimb(skeleton, rightShoulder.Value, Joint.RightElbow, Joint.RightWrist, Joint.RightMiddleFingertip),
                         LeftLeg = ExtractLimb(skeleton, leftHip.Value, Joint.LeftKnee, Joint.LeftAnkle, Joint.LeftMiddleToeTip),
