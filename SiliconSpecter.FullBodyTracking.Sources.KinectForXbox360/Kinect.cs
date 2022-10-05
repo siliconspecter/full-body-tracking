@@ -440,7 +440,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
               foreach (var playerIdentifierAndPlayer in playersToUpsertByIdentifiers)
               {
-                if (!playersToUpsertByIdentifiers.ContainsKey(playerIdentifierAndPlayer.Key))
+                if (!_players.ContainsKey(playerIdentifierAndPlayer.Key))
                 {
                   identifiersOfPlayersToRemoveOrAdded.Add(playerIdentifierAndPlayer.Key);
                 }
