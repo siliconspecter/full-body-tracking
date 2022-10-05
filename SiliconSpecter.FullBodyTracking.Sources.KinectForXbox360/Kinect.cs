@@ -672,7 +672,10 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
           throw new Exception(_workerError);
         }
 
-        _players.TryGetValue(playerIdentifier, out var player);
+        if (!_players.TryGetValue(playerIdentifier, out var player))
+        {
+          return null;
+        }
 
         return player;
       }
