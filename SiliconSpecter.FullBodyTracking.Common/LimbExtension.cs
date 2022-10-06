@@ -3,7 +3,7 @@
 namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
-  /// Details regarding the extension of a <see cref="Player"/>'s <see cref="Limb"/>.
+  /// Details regarding the extension of a <see cref="Player{TFrameNumber}"/>'s <see cref="Limb"/>.
   /// </summary>
   public struct LimbExtension
   {

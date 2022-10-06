@@ -1,7 +1,7 @@
 namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <inheritdoc />
-  public sealed class PlayerToMetricsConverter : IPlayerToMetricsConverter
+  public sealed class PlayerToMetricsConverter<TFrameNumber> : IPlayerToMetricsConverter<TFrameNumber>
   {
     /// <summary>
     /// The <see cref="ILimbMeasurer"/> in use.
@@ -16,7 +16,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
     }
 
     /// <inheritdoc />
-    public Metrics Convert(Player player, Metrics? metrics)
+    public Metrics Convert(Player<TFrameNumber> player, Metrics? metrics)
     {
       var output = metrics ?? new Metrics
       {

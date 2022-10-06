@@ -8,7 +8,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public struct FacialAnimation
   {
     /// <summary>
-    /// When known, the emote the <see cref="Player"/> is currently making.
+    /// When known, the emote the <see cref="Player{TFrameNumber}"/> is currently making.
     /// </summary>
     public Emote Emote;
 

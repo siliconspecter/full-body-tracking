@@ -3,7 +3,7 @@
 namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
-  /// Details regarding a <see cref="Player"/>'s arm or leg.
+  /// Details regarding a <see cref="Player{TFrameNumber}"/>'s arm or leg.
   /// </summary>
   public struct Limb
   {

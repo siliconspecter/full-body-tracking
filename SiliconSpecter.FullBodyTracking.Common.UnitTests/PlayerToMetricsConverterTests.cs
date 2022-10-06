@@ -12,7 +12,7 @@ public sealed class PlayerToMetricsConverterTests
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
 
-    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
+    var playerToMetricsConverter = new PlayerToMetricsConverter<uint>(limbMeasurer.Object);
 
     Assert.AreSame(limbMeasurer.Object, playerToMetricsConverter.LimbMeasurer);
     limbMeasurer.VerifyNoOtherCalls();
@@ -22,9 +22,10 @@ public sealed class PlayerToMetricsConverterTests
   public void MeasuresLimbsWithoutAPreviousSetOfMetricsOrDetails()
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
-    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
-    var player = new Player
+    var playerToMetricsConverter = new PlayerToMetricsConverter<uint>(limbMeasurer.Object);
+    var player = new Player<uint>
     {
+      FrameNumber = 498394,
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
     };
 
@@ -41,7 +42,7 @@ public sealed class PlayerToMetricsConverterTests
   public void MeasuresLimbsWithDetailsWithoutAPreviousSetOfMetrics()
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
-    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
+    var playerToMetricsConverter = new PlayerToMetricsConverter<uint>(limbMeasurer.Object);
     var leftArm = new Limb
     {
       ProximalPosition = new Vector3(1.0f, 0.7f, 0.9f),
@@ -58,8 +59,9 @@ public sealed class PlayerToMetricsConverterTests
     {
       ProximalPosition = new Vector3(0.8f, 0.9f, 0.8f),
     };
-    var player = new Player
+    var player = new Player<uint>
     {
+      FrameNumber = 498394,
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
       Details = new PlayerDetails
       {
@@ -91,9 +93,10 @@ public sealed class PlayerToMetricsConverterTests
   public void MeasuresLimbsWithoutDetailsWithAPreviousSetOfMetrics()
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
-    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
-    var player = new Player
+    var playerToMetricsConverter = new PlayerToMetricsConverter<uint>(limbMeasurer.Object);
+    var player = new Player<uint>
     {
+      FrameNumber = 498394,
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
     };
     var metrics = new Metrics
@@ -117,7 +120,7 @@ public sealed class PlayerToMetricsConverterTests
   public void MeasuresLimbsWithDetailsWithAPreviousSetOfMetrics()
   {
     var limbMeasurer = new Mock<ILimbMeasurer>();
-    var playerToMetricsConverter = new PlayerToMetricsConverter(limbMeasurer.Object);
+    var playerToMetricsConverter = new PlayerToMetricsConverter<uint>(limbMeasurer.Object);
     var leftArm = new Limb
     {
       ProximalPosition = new Vector3(1.0f, 0.7f, 0.9f),
@@ -134,8 +137,9 @@ public sealed class PlayerToMetricsConverterTests
     {
       ProximalPosition = new Vector3(0.8f, 0.9f, 0.8f),
     };
-    var player = new Player
+    var player = new Player<uint>
     {
+      FrameNumber = 498394,
       ApproximatePosition = new Vector3(7.4f, -2.1f, 8.8f),
       Details = new PlayerDetails
       {

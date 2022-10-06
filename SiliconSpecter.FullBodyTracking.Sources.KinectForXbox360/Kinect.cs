@@ -17,7 +17,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
   /// <summary>
   /// Provides full-body tracking from a Kinect.
   /// </summary>
-  public sealed class Kinect : ISource<uint>
+  public sealed class Kinect : ISource<uint, uint>
   {
     private IFaceTrackLib _faceTrackLib;
     private IKernel32 _kernel32;
@@ -35,7 +35,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
     private IntPtr _depthStream;
     private bool _stopWorker = false;
     private Thread _worker;
-    private Dictionary<uint, Player> _players = new Dictionary<uint, Player>();
+    private Dictionary<uint, Player<uint>> _players = new Dictionary<uint, Player<uint>>();
     private HashSet<uint> _identifiersOfPlayersTrackedInDetail = new HashSet<uint>();
     private readonly object _lock = new Object();
 
@@ -68,7 +68,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
     private void Worker()
     {
-      var playersToUpsertByIdentifiers = new Dictionary<uint, Player>();
+      var playersToUpsertByIdentifiers = new Dictionary<uint, Player<uint>>();
       var identifiersOfPlayersToRemoveOrAdded = new HashSet<uint>();
       var resultsByPlayerIdentifiers = new Dictionary<uint, IResult>();
       var animationUnitCoefficients = new float[(int)AnimationUnit.Count];
@@ -276,7 +276,11 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                   break;
 
                 case SkeletonStatus.PositionOnly:
-                  playersToUpsertByIdentifiers[skeleton.PlayerIdentifier] = new Player { ApproximatePosition = new Vector3(-skeleton.Position.X, skeleton.Position.Y, skeleton.Position.Z) };
+                  playersToUpsertByIdentifiers[skeleton.PlayerIdentifier] = new Player<uint>
+                  {
+                    FrameNumber = skeletonFrame.FrameNumber,
+                    ApproximatePosition = new Vector3(-skeleton.Position.X, skeleton.Position.Y, skeleton.Position.Z)
+                  };
                   break;
 
                 case SkeletonStatus.Tracked:
@@ -406,8 +410,9 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                       }
                     }
 
-                    playersToUpsertByIdentifiers[skeleton.PlayerIdentifier] = new Player
+                    playersToUpsertByIdentifiers[skeleton.PlayerIdentifier] = new Player<uint>
                     {
+                      FrameNumber = skeletonFrame.FrameNumber,
                       ApproximatePosition = -new Vector3(-skeleton.Position.X, skeleton.Position.Y, skeleton.Position.Z),
                       Details = new PlayerDetails
                       {
@@ -658,7 +663,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
     public event NewPlayerHandler<uint> NewPlayer;
 
     /// <inheritdoc />
-    public Player? Get(uint playerIdentifier)
+    public Player<uint>? Get(uint playerIdentifier)
     {
       lock (_lock)
       {
