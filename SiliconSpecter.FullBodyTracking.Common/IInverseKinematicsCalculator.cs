@@ -11,6 +11,6 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// <param name="keyframe">The <see cref="InterpolatablePlayerKeyframe"/> from which to calculate <see cref="InverseKinematics"/>.</param>
     /// <param name="bindPose">The character's <see cref="BindPose"/>.</param>
     /// <returns>The <see cref="InverseKinematics"/> calculated from the given <paramref name="keyframe"/>.</returns>
-    InverseKinematics Convert(InterpolatablePlayerKeyframe keyframe, BindPose bindPose);
+    InverseKinematics Calculate(InterpolatablePlayerKeyframe keyframe, BindPose bindPose);
   }
 }
