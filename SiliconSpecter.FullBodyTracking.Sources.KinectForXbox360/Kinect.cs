@@ -413,7 +413,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                     playersToUpsertByIdentifiers[skeleton.PlayerIdentifier] = new Player<uint>
                     {
                       FrameNumber = skeletonFrame.FrameNumber,
-                      ApproximatePosition = -new Vector3(-skeleton.Position.X, skeleton.Position.Y, skeleton.Position.Z),
+                      ApproximatePosition = new Vector3(-skeleton.Position.X, skeleton.Position.Y, skeleton.Position.Z),
                       Details = new PlayerDetails
                       {
                         HeadUpNormal = headUpNormal,
