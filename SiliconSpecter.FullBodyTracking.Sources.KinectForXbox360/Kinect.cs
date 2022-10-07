@@ -532,7 +532,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       }
     }
 
-    private static Limb ExtractLimb(Internals.Interop.Kinect10.Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
+    private static Limb ExtractLimb(Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
     {
       var intermediatePosition = GetJointPositionIfAvailable(skeleton, intermediateJoint);
       var distalPosition = GetJointPositionIfAvailable(skeleton, distalJoint);
@@ -541,11 +541,11 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       return new Limb
       {
         ProximalPosition = proximalPosition,
-        Extension = distalPosition.HasValue && tipPosition.HasValue ? (LimbExtension?)new LimbExtension
+        Extension = distalPosition.HasValue && tipPosition.HasValue ? new LimbExtension
         {
-          IntermediatePosition = intermediatePosition,
-          DistalPosition = distalPosition.Value,
-          TipPosition = tipPosition.Value,
+            IntermediatePosition = intermediatePosition,
+            DistalPosition = distalPosition.Value,
+            TipPosition = tipPosition.Value,
         } : null,
       };
     }
