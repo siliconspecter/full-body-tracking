@@ -306,10 +306,10 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                     {
                       var headPoints = new HeadPoints
                       {
-                        NeckX = neck.Value.X,
+                        NeckX = -neck.Value.X,
                         NeckY = neck.Value.Y,
                         NeckZ = neck.Value.Z,
-                        TopOfHeadX = topOfHead.Value.X,
+                        TopOfHeadX = -topOfHead.Value.X,
                         TopOfHeadY = topOfHead.Value.Y,
                         TopOfHeadZ = topOfHead.Value.Z,
                       };
