@@ -18,7 +18,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
           JawLowered = LinearlyInterpolate(from.FacialAnimation.JawLowered, to.FacialAnimation.JawLowered, mix),
           MouthWidth = LinearlyInterpolate(from.FacialAnimation.MouthWidth, to.FacialAnimation.MouthWidth, mix),
         },
-        HipsPosition = Vector3.Lerp(from.HipsPosition, to.HipsPosition, mix),
+        Position = Vector3.Lerp(from.Position, to.Position, mix),
         HipsRotation = Quaternion.Lerp(from.HipsRotation, to.HipsRotation, mix),
         ShouldersRotation = Quaternion.Lerp(from.ShouldersRotation, to.ShouldersRotation, mix),
         HeadRotation = Quaternion.Lerp(from.HeadRotation, to.HeadRotation, mix),

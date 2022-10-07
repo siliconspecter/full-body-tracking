@@ -13,9 +13,9 @@ namespace SiliconSpecter.FullBodyTracking.Common
     public FacialAnimation FacialAnimation;
 
     /// <summary>
-    /// The position of the hips, in meters, in world space.
+    /// The position of the character (hip center on X and Z, lower foot on Y), in meters, in world space.
     /// </summary>
-    public Vector3 HipsPosition;
+    public Vector3 Position;
 
     /// <summary>
     /// The rotation of the hips, relative to the facing rotation.
@@ -69,7 +69,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
         JawLowered = 0,
         MouthWidth = 0,
       },
-      HipsPosition = Vector3.Zero,
+      Position = Vector3.Zero,
       HipsRotation = Quaternion.Identity,
       ShouldersRotation = Quaternion.Identity,
       HeadRotation = Quaternion.Identity,

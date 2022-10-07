@@ -8,9 +8,9 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public struct InverseKinematics
   {
     /// <summary>
-    /// The position of the hips bone, in world space.
+    /// The position of the hips bone on the Y axis, in meters, in local space.
     /// </summary>
-    public Vector3 HipsPosition;
+    public float HipsY;
 
     /// <summary>
     /// The rotation of the hips bone, in world space.
