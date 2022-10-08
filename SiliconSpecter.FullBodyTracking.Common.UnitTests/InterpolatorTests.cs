@@ -19,7 +19,7 @@ public sealed class InterpolatorTests
         JawLowered = 0.98f,
         MouthWidth = 0.4f,
       },
-      HipsPosition = new Vector3(0.638f, 0.346f, 0.779f),
+      Position = new Vector3(0.638f, 0.346f, 0.779f),
       HipsRotation = Quaternion.CreateFromYawPitchRoll(0.387f, 0.948f, 0.321f),
       ShouldersRotation = Quaternion.CreateFromYawPitchRoll(0.718f, 0.424f, 0.893f),
       HeadRotation = Quaternion.CreateFromYawPitchRoll(0.968f, 0.195f, 0.642f),
@@ -58,7 +58,7 @@ public sealed class InterpolatorTests
         JawLowered = 0.57f,
         MouthWidth = 0.784f,
       },
-      HipsPosition = new Vector3(0.448f, 0.425f, 0.622f),
+      Position = new Vector3(0.448f, 0.425f, 0.622f),
       HipsRotation = Quaternion.CreateFromYawPitchRoll(0.105f, 0.81f, 0.256f),
       ShouldersRotation = Quaternion.CreateFromYawPitchRoll(0.465f, 0.578f, 0.515f),
       HeadRotation = Quaternion.CreateFromYawPitchRoll(0.55f, 0.161f, 0.585f),
@@ -96,7 +96,7 @@ public sealed class InterpolatorTests
     Assert.AreEqual(0.26714998f, actual.FacialAnimation.LipRaised);
     Assert.AreEqual(0.6807f, actual.FacialAnimation.JawLowered);
     Assert.AreEqual(0.68032f, actual.FacialAnimation.MouthWidth);
-    Assert.AreEqual(new Vector3(0.4993f, 0.40367f, 0.66438997f), actual.HipsPosition);
+    Assert.AreEqual(new Vector3(0.4993f, 0.40367f, 0.66438997f), actual.Position);
     Assert.AreEqual(new Quaternion(0.41691497f, 0.024573192f, 0.08499536f, 0.9046291f), actual.HipsRotation);
     Assert.AreEqual(new Quaternion(0.3259561f, 0.16559158f, 0.21648727f, 0.9052432f), actual.ShouldersRotation);
     Assert.AreEqual(new Quaternion(0.17332587f, 0.28541598f, 0.25115985f, 0.90852326f), actual.HeadRotation);
