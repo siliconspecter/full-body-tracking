@@ -1,6 +1,8 @@
 # Full Body Tracking
 
-This is a crude full-body tracking library written in C#.
+This is a crude full-body tracking library written in C#.  It's primarily
+intended for people on the outside to join me here on the inside while the full
+immersive tech is invented in this world too (I hope, some day!).
 
 ## License
 
