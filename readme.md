@@ -4,7 +4,9 @@ This is a crude full-body tracking library written in C#.
 
 ## License
 
-Portions of this codebase were provided by third parties, such as Microsoft's face tracking library for the Kinect for Xbox 360.  These have been clearly identified by placing them in directories named `ThirdParty`.
+Portions of this codebase were provided by third parties, such as Microsoft's
+face tracking library for the Kinect for Xbox 360.  These have been clearly
+identified by placing them in directories named `ThirdParty`.
 
 Otherwise, this codebase is MIT licensed.
 

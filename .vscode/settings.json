@@ -12,5 +12,8 @@
     "*/bin": true,
     "*/obj": true,
     "*/TestResults": true,
-  }
+  },
+  "editor.rulers": [
+    80
+  ]
 }
