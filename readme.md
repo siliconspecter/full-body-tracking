@@ -51,7 +51,8 @@ be).
 
 While the Kinect is very impressive for its age and low cost (especially now,
 given a glut of supply and not much demand) the accuracy of this joint data can
-be a little vague (drift of a couple of inches is common).
+be a little vague (drift of a couple of inches is common) and players are very
+rarely a perfect 1:1 match with their avatars.
 
 We therefore do some reprojection; rather than taking the skeleton from the
 Kinect and directly applying it to the skeletal mesh, we convert it into a sort
