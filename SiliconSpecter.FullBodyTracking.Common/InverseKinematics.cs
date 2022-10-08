@@ -18,7 +18,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
     public Quaternion HipsRotation;
 
     /// <summary>
-    /// The rotation of the shoulder bone, relative to the <see cref="HipsRotation"/>.
+    /// The rotation of the shoulder bone, in world space.
     /// </summary>
     public Quaternion ShoulderBone;
 

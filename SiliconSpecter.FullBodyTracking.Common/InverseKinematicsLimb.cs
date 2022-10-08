@@ -8,17 +8,17 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public struct InverseKinematicsLimb
   {
     /// <summary>
-    /// The rotation of upper arm or leg relative to the shoulders or hips.
+    /// The rotation of upper arm or leg, in world space.
     /// </summary>
     public Quaternion Proximal;
 
     /// <summary>
-    /// The rotation of lower arm or leg relative to the upper arm or leg.
+    /// The rotation of lower arm or leg, in world space.
     /// </summary>
     public Quaternion Intermediate;
 
     /// <summary>
-    /// The rotation of hand or foot relative to the lower arm or leg.
+    /// The rotation of hand or foot, in world space.
     /// </summary>
     public Quaternion Distal;
   }
