@@ -376,10 +376,18 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                     {
                       result.Get3DPose(out var scale, out var rotation, out var translation);
 
-                      // TODO: Compute up normal from face tracking data.
-
+                      var pitch = Math.PI * rotation.X / -180.0;
                       var yaw = Math.PI * (180 - rotation.Y) / 180.0;
-                      headForwardNormal = new Vector3((float)Math.Sin(yaw), 0, (float)Math.Cos(yaw));
+                      var roll = Math.PI * (rotation.Z) / 180.0;
+
+                      var headRotation = Quaternion.Identity;
+
+                      headRotation *= Quaternion.CreateFromAxisAngle(new Vector3(0, 1, 0), (float)yaw);
+                      headRotation *= Quaternion.CreateFromAxisAngle(new Vector3(1, 0, 0), (float)pitch);
+                      headRotation *= Quaternion.CreateFromAxisAngle(new Vector3(0, 0, 1), (float)roll);
+
+                      headForwardNormal = Vector3.Transform(new Vector3(0, 0, 1), headRotation);
+                      headUpNormal = Vector3.Transform(new Vector3(0, 1, 0), headRotation);
 
                       result.GetAUCoefficients(out var auPointer, out var numberOfAnimationUnits);
 
