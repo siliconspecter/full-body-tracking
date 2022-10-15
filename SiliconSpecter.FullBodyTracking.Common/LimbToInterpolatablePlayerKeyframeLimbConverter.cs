@@ -7,7 +7,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public sealed class LimbToInterpolatablePlayerKeyframeLimbConverter : ILimbToInterpolatablePlayerKeyframeLimbConverter
   {
     /// <inheritdoc />
-    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb previousKeyframe, Vector3 fallbackBendNormal, float length, Quaternion cameraToInverseFacingRotation)
+    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb previousKeyframe, Vector3 fallbackBendNormal, float lockedWhenIntermediateDistanceLessThan, float length, Quaternion cameraToInverseFacingRotation)
     {
       previousKeyframe.BendNormal = fallbackBendNormal;
 
@@ -24,7 +24,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
 
             var elbowDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
 
-            if (elbowDirection.LengthSquared() > 0.000625f)
+            if (elbowDirection.LengthSquared() > lockedWhenIntermediateDistanceLessThan * lockedWhenIntermediateDistanceLessThan)
             {
               previousKeyframe.BendNormal = Vector3.Normalize(elbowDirection);
             }
