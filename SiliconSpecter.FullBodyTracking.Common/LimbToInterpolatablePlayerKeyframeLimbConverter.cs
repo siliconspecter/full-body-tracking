@@ -7,8 +7,10 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public sealed class LimbToInterpolatablePlayerKeyframeLimbConverter : ILimbToInterpolatablePlayerKeyframeLimbConverter
   {
     /// <inheritdoc />
-    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb previousKeyframe, float length, Quaternion cameraToInverseFacingRotation)
+    public InterpolatablePlayerKeyframeLimb Convert(Limb limb, InterpolatablePlayerKeyframeLimb previousKeyframe, Vector3 fallbackBendNormal, float length, Quaternion cameraToInverseFacingRotation)
     {
+      previousKeyframe.BendNormal = fallbackBendNormal;
+
       if (limb.Extension.HasValue)
       {
         if (limb.ProximalPosition != limb.Extension.Value.DistalPosition)

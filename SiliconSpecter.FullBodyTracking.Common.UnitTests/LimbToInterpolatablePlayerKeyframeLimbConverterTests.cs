@@ -23,10 +23,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(0.434f, 0.924f, 0.168f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(0.663f, 0.611f, 0.169f), actual.TipNormal);
   }
 
@@ -52,10 +52,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(0.434f, 0.924f, 0.168f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(0.663f, 0.611f, 0.169f), actual.TipNormal);
   }
 
@@ -81,10 +81,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(-0.39361814f, 0.08524121f, 0.028986134f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(0.663f, 0.611f, 0.169f), actual.TipNormal);
   }
 
@@ -110,10 +110,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(0.434f, 0.924f, 0.168f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(-0.95780224f, 0.27534986f, 0.08244616f), actual.TipNormal);
   }
 
@@ -140,10 +140,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(-0.39361814f, 0.08524121f, 0.028986134f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(0.663f, 0.611f, 0.169f), actual.TipNormal);
   }
 
@@ -170,7 +170,7 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(-0.39361814f, 0.08524121f, 0.028986134f), actual.Extension);
     Assert.AreEqual(new Vector3(0.044844657f, 0.50101984f, -0.8642732f), actual.BendNormal);
@@ -199,10 +199,10 @@ public sealed class LimbToInterpolatablePlayerKeyframeLimbConverterTests
     var cameraToInverseFacingRotation = Quaternion.CreateFromYawPitchRoll(0.198f, 0.791f, 0.670f);
     var limbToInterpolatablePlayerKeyframeLimbConverter = new LimbToInterpolatablePlayerKeyframeLimbConverter();
 
-    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, length, cameraToInverseFacingRotation);
+    var actual = limbToInterpolatablePlayerKeyframeLimbConverter.Convert(limb, previousKeyframe, new Vector3(0.760f, 0.245f, 0.742f), length, cameraToInverseFacingRotation);
 
     Assert.AreEqual(new Vector3(-0.97482353f, 0.21110599f, 0.07178624f), actual.Extension);
-    Assert.AreEqual(new Vector3(0.946f, 0.938f, 0.318f), actual.BendNormal);
+    Assert.AreEqual(new Vector3(0.760f, 0.245f, 0.742f), actual.BendNormal);
     Assert.AreEqual(new Vector3(0.663f, 0.611f, 0.169f), actual.TipNormal);
   }
 }
