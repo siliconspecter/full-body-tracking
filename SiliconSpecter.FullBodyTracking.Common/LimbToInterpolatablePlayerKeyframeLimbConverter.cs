@@ -22,11 +22,11 @@ namespace SiliconSpecter.FullBodyTracking.Common
           {
             var proximalToIntermediate = Vector3.Transform(limb.Extension.Value.IntermediatePosition.Value - limb.ProximalPosition, cameraToInverseFacingRotation);
 
-            var elbowDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
+            var bendDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
 
-            if (elbowDirection.LengthSquared() > lockedWhenIntermediateDistanceLessThan * lockedWhenIntermediateDistanceLessThan)
+            if (bendDirection.LengthSquared() > lockedWhenIntermediateDistanceLessThan * lockedWhenIntermediateDistanceLessThan)
             {
-              previousKeyframe.BendNormal = Vector3.Normalize(elbowDirection);
+              previousKeyframe.BendNormal = Vector3.Normalize(bendDirection);
             }
           }
         }
