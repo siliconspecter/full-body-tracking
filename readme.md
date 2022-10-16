@@ -32,7 +32,7 @@ bone, we can infer rotation in different ways.
 
 #### Limbs
 
-Arms, hands, legs and feed can be oriented using one another; for example, the
+Arms, hands, legs and feet can be oriented using one another; for example, the
 upper arm is positioned at the shoulder and points at the elbow, while the hand
 uses the elbow to generate roll.
 
