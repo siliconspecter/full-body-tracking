@@ -18,8 +18,8 @@ namespace SiliconSpecter.FullBodyTracking.Common
     public Vector3 DistalPosition;
 
     /// <summary>
-    /// The position of the arm's middle fingertip/foot's middle toetip, in camera space.
+    /// The position of the arm's middle fingertip/foot's middle toetip, in camera space, if known, otherwise, <see langword="null"/>.
     /// </summary>
-    public Vector3 TipPosition;
+    public Vector3? TipPosition;
   }
 }
