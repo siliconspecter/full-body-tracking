@@ -69,4 +69,14 @@ track of some things from the previous update we received, relative to the
 player's vague position and facing direction, and reproject it onto their new
 position/facing direction.
 
+### Kinect limitation workarounds
+
+When pointing an arm directly towards the Kinect, your hand quite often blocks
+the Kinect's view of your wrist.  The Kinect does a reasonable job of filling in
+these joints, but it seems that the fingertip joint becomes quite jittery.
+
+We therefore detect the forearm being pointed directly towards the camera and
+discard the fingertip joint entirely; the hand instead just follows the
+orientation of the forearm.
+
 Adios, René.

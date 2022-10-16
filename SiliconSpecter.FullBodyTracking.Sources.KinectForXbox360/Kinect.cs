@@ -546,14 +546,20 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       var distalPosition = GetJointPositionIfAvailable(skeleton, distalJoint);
       var tipPosition = GetJointPositionIfAvailable(skeleton, tipJoint);
 
+      // If the hand is pointing at the camera this data becomes very jittery and we're better off not trying to use it.
+      if (distalPosition.HasValue && intermediatePosition.HasValue && Vector3.Normalize(distalPosition.Value - intermediatePosition.Value).Z < -0.85f)
+      {
+        tipPosition = null;
+      }
+
       return new Limb
       {
         ProximalPosition = proximalPosition,
-        Extension = distalPosition.HasValue && tipPosition.HasValue ? new LimbExtension
+        Extension = distalPosition.HasValue ? new LimbExtension
         {
-            IntermediatePosition = intermediatePosition,
-            DistalPosition = distalPosition.Value,
-            TipPosition = tipPosition.Value,
+          IntermediatePosition = intermediatePosition,
+          DistalPosition = distalPosition.Value,
+          TipPosition = tipPosition,
         } : null,
       };
     }
