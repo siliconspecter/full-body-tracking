@@ -25,7 +25,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// <param name="roll">The roll to apply to the bones, in radians.</param>
     /// <returns>
     /// The <see cref="InverseKinematicsLimb"/> calculated from the given
-    /// <paramref name="keyframe"/>.
+    /// <paramref name="keyframeLimb"/>.
     /// </returns>
     InverseKinematicsLimb Calculate
     (
