@@ -10,24 +10,6 @@ namespace SiliconSpecter.FullBodyTracking.Common
   public static class Miscellaneous
   {
     /// <summary>
-    /// Calculates an interior angle of a triangle, in radians.
-    /// </summary>
-    /// <param name="lengthOfNearSideA">
-    /// The length of the first side touching the interior angle.
-    /// </param>
-    /// <param name="lengthOfNearSideB">
-    /// The length of the second side touching the interior angle.
-    /// </param>
-    /// <param name="lengthOfFarSide">
-    /// The length of the side which does not touch the interior angle.
-    /// </param>
-    /// <returns>The interior angle of the described triangle.</returns>
-    public static double SolveGammaForLawOfCosines(double lengthOfNearSideA, double lengthOfNearSideB, double lengthOfFarSide)
-    {
-      return Math.Acos(Math.Max(-1, Math.Min(1, (lengthOfNearSideA * lengthOfNearSideA + lengthOfNearSideB * lengthOfNearSideB - lengthOfFarSide * lengthOfFarSide) / (2 * lengthOfNearSideA * lengthOfNearSideB))));
-    }
-
-    /// <summary>
     /// Generates a <see cref="Quaternion"/> which looks (along Z+) in a
     /// specified direction, with up (along Y+) in a specified direction.
     /// </summary>

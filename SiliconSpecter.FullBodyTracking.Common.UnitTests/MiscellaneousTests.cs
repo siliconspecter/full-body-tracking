@@ -7,18 +7,6 @@ namespace SiliconSpecter.FullBodyTracking.Common.UnitTests;
 public sealed class MiscellaneousTests
 {
   [TestMethod]
-  public void SolvesGammaUsingLawOfCosines()
-  {
-    var lengthOfNearSideA = 2.41;
-    var lengthOfNearSideB = 7.4;
-    var lengthOfFarSide = 8.41;
-
-    var actual = Miscellaneous.SolveGammaForLawOfCosines(lengthOfNearSideA, lengthOfNearSideB, lengthOfFarSide);
-
-    Assert.AreEqual(1.85964535094, actual, 0.00001);
-  }
-
-  [TestMethod]
   public void CalculatesLookAtQuaternions()
   {
     var forward = new Vector3(-80.684f, -86.669f, 22.639f);
