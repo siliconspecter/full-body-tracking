@@ -22,18 +22,26 @@ namespace SiliconSpecter.FullBodyTracking.Common
           {
             var proximalToIntermediate = Vector3.Transform(limb.Extension.Value.IntermediatePosition.Value - limb.ProximalPosition, cameraToInverseFacingRotation);
 
-            var elbowDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
+            var bendDirection = proximalToIntermediate - extensionNormal * Vector3.Dot(extensionNormal, proximalToIntermediate);
 
-            if (elbowDirection.LengthSquared() > lockedWhenIntermediateDistanceLessThan * lockedWhenIntermediateDistanceLessThan)
+            if (bendDirection.LengthSquared() > lockedWhenIntermediateDistanceLessThan * lockedWhenIntermediateDistanceLessThan)
             {
-              previousKeyframe.BendNormal = Vector3.Normalize(elbowDirection);
+              previousKeyframe.BendNormal = Vector3.Normalize(bendDirection);
             }
           }
         }
 
-        if (limb.Extension.Value.TipPosition != limb.Extension.Value.DistalPosition)
+        if (limb.Extension.Value.TipPosition.HasValue && limb.Extension.Value.TipPosition != limb.Extension.Value.DistalPosition)
         {
-          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.TipPosition - limb.Extension.Value.DistalPosition, cameraToInverseFacingRotation));
+          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.TipPosition.Value - limb.Extension.Value.DistalPosition, cameraToInverseFacingRotation));
+        }
+        else if (limb.Extension.Value.IntermediatePosition.HasValue && limb.Extension.Value.IntermediatePosition.Value != limb.Extension.Value.DistalPosition)
+        {
+          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.DistalPosition - limb.Extension.Value.IntermediatePosition.Value, cameraToInverseFacingRotation));
+        }
+        else
+        {
+          previousKeyframe.TipNormal = Vector3.Normalize(previousKeyframe.Extension);
         }
       }
 

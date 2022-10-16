@@ -19,6 +19,60 @@ The license file can be found [here](./license).
 - [SiliconSpecter.FullBodyTracking.Common](./SiliconSpecter.FullBodyTracking.Common) - Common data types, interfaces and implementations shared between the other projects of this library.  Unit tests can be found in [SiliconSpecter.FullBodyTracking.Common.UnitTests](./SiliconSpecter.FullBodyTracking.Common.UnitTests).
 - [SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360) - Implements the source interface for the Kinect for Xbox 360.  You will need the Kinect SDK v1.8 installed to use this; the [face tracking library is included](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360/Interop/FaceTrackLib/ThirdParty) and must be loaded in some manner before attempting to use this project (how this done varies by operating environment).  Unit tests can be found in [SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests](./SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360.UnitTests).
 
+## How to use it
+
+### Installation
+
+#### Within a Unity project
+
+You're not supposed to do this and Unity will rightly tell you off for trying
+it, but you _can_ just add this repository as a submodule to your own and
+add symlinks to the projects you want to include.  Any non-test projects should
+work under Unity on Windows at least.
+
+#### Kinect for Xbox 360
+
+You will need to install the [Kinect for Windows Runtime v1.8](https://www.microsoft.com/en-gb/download/details.aspx?id=40277)
+to use this project.  Version 2 and up are incompatible as they only work with
+the Kinect for Xbox One.
+
+### Flow
+
+First, use an [ISource](./SiliconSpecter.FullBodyTracking.Common/ISource.cs),
+which represents a motion capture device, to get one or more
+[Player](./SiliconSpecter.FullBodyTracking.Common/Player.cs)s; it will raise
+events when it sees new players.
+
+Initially, you will only get a rough position for each player, so inform the
+source which players you wish to track in detail.  Most motion capture devices
+have hard limits on how many players you can track in detail, and can sometimes
+misidentify background objects as players, so don't just say all of them!
+
+Use [IPlayerToMetricsConverter](./SiliconSpecter.FullBodyTracking.Common/IPlayerToMetricsConverter.cs)
+to measure the performer, and pass those measurements and the most recent player
+details to [IPlayerToKeyframeConverter](./SiliconSpecter.FullBodyTracking.Common/IPlayerToKeyframeConverter.cs).
+
+When polling the source for updates to player data, one of three things can
+happen:
+
+- If the motion capture device has lost tracking, you will receive null.
+- If the motion capture device does not yet have an update, you will receive the
+  exact same player data again.
+- Otherwise, you will receive player data with a different frame number to the
+  previous update for that player.
+
+[IInterpolator](./SiliconSpecter.FullBodyTracking.Common/IInterpolator.cs) can be
+used to generate data for frames between updates from the motion capture device.
+
+Once interpolated, pass the resulting keyframe data to
+[IInverseKinematicsCalculator](./SiliconSpecter.FullBodyTracking.Common/IInverseKinematicsCalculator.cs)
+to get a set of [InverseKinematics](./SiliconSpecter.FullBodyTracking.Common/InverseKinematics.cs).
+This describes the final world-space coordinates which are to be applied to the
+character model.
+
+You will need to generate a [BindPose](./SiliconSpecter.FullBodyTracking.Common/BindPose.cs)
+from the character model you will be animating to calculate inverse kinematics.
+
 ## How it works
 
 The Kinect can pass through the positions of various joints; shoulders, elbows,
@@ -32,7 +86,7 @@ bone, we can infer rotation in different ways.
 
 #### Limbs
 
-Arms, hands, legs and feed can be oriented using one another; for example, the
+Arms, hands, legs and feet can be oriented using one another; for example, the
 upper arm is positioned at the shoulder and points at the elbow, while the hand
 uses the elbow to generate roll.
 
@@ -68,5 +122,15 @@ for straight arms, and arms could be behind you!).  We therefore have to keep
 track of some things from the previous update we received, relative to the
 player's vague position and facing direction, and reproject it onto their new
 position/facing direction.
+
+### Kinect limitation workarounds
+
+When pointing an arm directly towards the Kinect, your hand quite often blocks
+the Kinect's view of your wrist.  The Kinect does a reasonable job of filling in
+these joints, but it seems that the fingertip joint becomes quite jittery.
+
+We therefore detect the forearm being pointed directly towards the camera and
+discard the fingertip joint entirely; the hand instead just follows the
+orientation of the forearm.
 
 Adios, René.
