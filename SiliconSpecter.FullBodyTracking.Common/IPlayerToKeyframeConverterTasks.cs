@@ -3,7 +3,7 @@ using System.Numerics;
 namespace SiliconSpecter.FullBodyTracking.Common
 {
   /// <summary>
-  /// Refactored sections of <see cref="IPlayerToKeyframeConverter"/>.
+  /// Refactored sections of <see cref="IPlayerToKeyframeConverter{TFrameNumber}"/>.
   /// </summary>
   public interface IPlayerToKeyframeConverterTasks
   {
