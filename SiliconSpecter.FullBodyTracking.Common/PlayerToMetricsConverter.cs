@@ -16,25 +16,17 @@ namespace SiliconSpecter.FullBodyTracking.Common
     }
 
     /// <inheritdoc />
-    public Metrics Convert(Player<TFrameNumber> player, Metrics? metrics)
+    public Metrics Convert(Player<TFrameNumber> player, Metrics metrics, float mix)
     {
-      var output = metrics ?? new Metrics
-      {
-        LeftArmLength = 0.635f,
-        RightArmLength = 0.635f,
-        LeftLegLength = 0.8125f,
-        RightLegLength = 0.8125f,
-      };
-
       if (player.Details.HasValue)
       {
-        output.LeftArmLength = LimbMeasurer.Measure(player.Details.Value.LeftArm, output.LeftArmLength);
-        output.RightArmLength = LimbMeasurer.Measure(player.Details.Value.RightArm, output.RightArmLength);
-        output.LeftLegLength = LimbMeasurer.Measure(player.Details.Value.LeftLeg, output.LeftLegLength);
-        output.RightLegLength = LimbMeasurer.Measure(player.Details.Value.RightLeg, output.RightLegLength);
+        metrics.LeftArmLength = LimbMeasurer.Measure(player.Details.Value.LeftArm, metrics.LeftArmLength, mix);
+        metrics.RightArmLength = LimbMeasurer.Measure(player.Details.Value.RightArm, metrics.RightArmLength, mix);
+        metrics.LeftLegLength = LimbMeasurer.Measure(player.Details.Value.LeftLeg, metrics.LeftLegLength, mix);
+        metrics.RightLegLength = LimbMeasurer.Measure(player.Details.Value.RightLeg, metrics.RightLegLength, mix);
       }
 
-      return output;
+      return metrics;
     }
   }
 }

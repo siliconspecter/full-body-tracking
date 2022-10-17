@@ -12,8 +12,9 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// Converts a given <see cref="Player{TFrameNumber}"/> to an equivalent <see cref="Metrics"/>.
     /// </summary>
     /// <param name="player">The <see cref="Player{TFrameNumber}"/> to convert to <see cref="Metrics"/>.</param>
-    /// <param name="metrics">The previous <see cref="Metrics"/>, if any, otherwise, <see langword="null"/>.</param>
+    /// <param name="metrics">The previous <see cref="Metrics"/>.</param>
+    /// <param name="mix">The amount of smoothing to apply, where zero never changes from <paramref name="metrics"/> and one is no smoothing at all.</param>
     /// <returns>The <see cref="Metrics"/> converted from the given <paramref name="player"/>.</returns>
-    Metrics Convert(Player<TFrameNumber> player, Metrics? metrics);
+    Metrics Convert(Player<TFrameNumber> player, Metrics metrics, float mix);
   }
 }

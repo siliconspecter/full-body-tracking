@@ -14,9 +14,10 @@ public sealed class LimbMeasurerTests
       ProximalPosition = new Vector3(10.3f, -8.7f, 4.2f)
     };
     var previousLength = 11.3f;
+    var mix = 0.3f;
     var limbMeasurer = new LimbMeasurer();
 
-    var actual = limbMeasurer.Measure(limb, previousLength);
+    var actual = limbMeasurer.Measure(limb, previousLength, mix);
 
     Assert.AreEqual(11.3f, actual);
   }
@@ -34,9 +35,10 @@ public sealed class LimbMeasurerTests
       },
     };
     var previousLength = 11.3f;
+    var mix = 0.3f;
     var limbMeasurer = new LimbMeasurer();
 
-    var actual = limbMeasurer.Measure(limb, previousLength);
+    var actual = limbMeasurer.Measure(limb, previousLength, mix);
 
     Assert.AreEqual(11.3f, actual);
   }
@@ -55,11 +57,12 @@ public sealed class LimbMeasurerTests
       },
     };
     var previousLength = 11.3f;
+    var mix = 0.3f;
     var limbMeasurer = new LimbMeasurer();
 
-    var actual = limbMeasurer.Measure(limb, previousLength);
+    var actual = limbMeasurer.Measure(limb, previousLength, mix);
 
-    Assert.AreEqual(50.84082f, actual, 0.0001f);
+    Assert.AreEqual(23.162247f, actual, 0.0001f);
   }
 
   [TestMethod]
@@ -76,9 +79,10 @@ public sealed class LimbMeasurerTests
       },
     };
     var previousLength = 11.3f;
+    var mix = 0.3f;
     var limbMeasurer = new LimbMeasurer();
 
-    var actual = limbMeasurer.Measure(limb, previousLength);
+    var actual = limbMeasurer.Measure(limb, previousLength, mix);
 
     Assert.AreEqual(previousLength, actual);
   }
