@@ -447,6 +447,7 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
               foreach (var playerIdentifier in identifiersOfPlayersToRemoveOrAdded)
               {
                 _players.Remove(playerIdentifier);
+                _identifiersOfPlayersTrackedInDetail.Remove(playerIdentifier);
               }
 
               identifiersOfPlayersToRemoveOrAdded.Clear();
