@@ -21,5 +21,10 @@ namespace SiliconSpecter.FullBodyTracking.Common
     /// A normal pointing in the direction the tip points (e.g. from the wrist to the tip of the middle finger), relative to the facing rotation.
     /// </summary>
     public Vector3 TipNormal;
+
+    /// <summary>
+    /// The length of the tip (foot or hand).
+    /// </summary>
+    public float TipLength;
   }
 }

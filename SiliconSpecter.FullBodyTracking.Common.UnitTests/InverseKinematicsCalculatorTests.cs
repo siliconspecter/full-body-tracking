@@ -29,24 +29,28 @@ public sealed class InverseKinematicsCalculatorTests
       Extension = new Vector3(0.526f, 0.358f, 0.940f),
       BendNormal = new Vector3(0.184f, 0.135f, 0.375f),
       TipNormal = new Vector3(0.630f, 0.312f, 0.635f),
+      TipLength = 0.376f,
     };
     var keyframeRightArm = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.351f, 0.618f, 0.219f),
       BendNormal = new Vector3(0.256f, 0.994f, 0.228f),
       TipNormal = new Vector3(0.636f, 0.038f, 0.551f),
+      TipLength = 0.360f,
     };
     var keyframeLeftLeg = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.278f, 0.053f, 0.166f),
       BendNormal = new Vector3(0.761f, 0.848f, 0.046f),
       TipNormal = new Vector3(0.802f, 0.624f, 0.401f),
+      TipLength = 0.495f,
     };
     var keyframeRightLeg = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.074f, 0.881f, 0.708f),
       BendNormal = new Vector3(0.114f, 0.940f, 0.551f),
       TipNormal = new Vector3(0.316f, 0.938f, 0.898f),
+      TipLength = 0.400f,
     };
     var keyframe = new InterpolatablePlayerKeyframe
     {
@@ -154,24 +158,28 @@ public sealed class InverseKinematicsCalculatorTests
       Extension = new Vector3(0.526f, 0.358f, 0.940f),
       BendNormal = new Vector3(0.184f, 0.135f, 0.375f),
       TipNormal = new Vector3(0.630f, 0.312f, 0.635f),
+      TipLength = 0.376f,
     };
     var keyframeRightArm = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.351f, 0.618f, 0.219f),
       BendNormal = new Vector3(0.256f, 0.994f, 0.228f),
       TipNormal = new Vector3(0.636f, 0.038f, 0.551f),
+      TipLength = 0.360f,
     };
     var keyframeLeftLeg = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.278f, 0.053f, 0.166f),
       BendNormal = new Vector3(0.761f, 0.848f, 0.046f),
       TipNormal = new Vector3(0.802f, 0.624f, 0.401f),
+      TipLength = 0.495f,
     };
     var keyframeRightLeg = new InterpolatablePlayerKeyframeLimb
     {
       Extension = new Vector3(0.074f, 0.881f, 0.708f),
       BendNormal = new Vector3(0.114f, 0.940f, 0.551f),
       TipNormal = new Vector3(0.316f, 0.938f, 0.898f),
+      TipLength = 0.400f,
     };
     var keyframe = new InterpolatablePlayerKeyframe
     {

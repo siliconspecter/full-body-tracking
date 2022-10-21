@@ -42,6 +42,7 @@ namespace SiliconSpecter.FullBodyTracking.Common
         Extension = Vector3.Lerp(from.Extension, to.Extension, mix),
         BendNormal = Vector3.Normalize(Vector3.Lerp(from.BendNormal, to.BendNormal, mix)),
         TipNormal = Vector3.Normalize(Vector3.Lerp(from.TipNormal, to.TipNormal, mix)),
+        TipLength = from.TipLength + (to.TipLength - from.TipLength) * mix,
       };
     }
   }

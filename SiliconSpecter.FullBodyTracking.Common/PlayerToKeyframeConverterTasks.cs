@@ -52,7 +52,9 @@ namespace SiliconSpecter.FullBodyTracking.Common
 
         if (limb.Extension.Value.TipPosition.HasValue && limb.Extension.Value.TipPosition != limb.Extension.Value.DistalPosition)
         {
-          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(limb.Extension.Value.TipPosition.Value - limb.Extension.Value.DistalPosition, cameraToInverseFacingRotation));
+          var tipDifference = limb.Extension.Value.TipPosition.Value - limb.Extension.Value.DistalPosition;
+          previousKeyframe.TipNormal = Vector3.Normalize(Vector3.Transform(tipDifference, cameraToInverseFacingRotation));
+          previousKeyframe.TipLength = tipDifference.Length();
         }
         else if (limb.Extension.Value.IntermediatePosition.HasValue && limb.Extension.Value.IntermediatePosition.Value != limb.Extension.Value.DistalPosition)
         {

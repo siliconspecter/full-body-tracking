@@ -29,24 +29,28 @@ public sealed class InterpolatorTests
         Extension = new Vector3(0.519f, 0.921f, 0.56f),
         BendNormal = new Vector3(0.176f, 0.226f, 0.561f),
         TipNormal = new Vector3(0.188f, 0.281f, 0.129f),
+        TipLength = 0.376f,
       },
       RightArm = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.258f, 0.095f, 0.917f),
         BendNormal = new Vector3(0.774f, 0.286f, 0.442f),
         TipNormal = new Vector3(0.027f, 0.322f, 0.499f),
+        TipLength = 0.360f,
       },
       LeftLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.56f, 0.841f, 0.41f),
         BendNormal = new Vector3(0.499f, 0.229f, 0.194f),
         TipNormal = new Vector3(0.288f, 0.421f, 0.274f),
+        TipLength = 0.495f,
       },
       RightLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.001f, 0.938f, 0.628f),
         BendNormal = new Vector3(0.516f, 0.374f, 0.032f),
         TipNormal = new Vector3(0.566f, 0.631f, 0.674f),
+        TipLength = 0.400f,
       },
     };
     var to = new InterpolatablePlayerKeyframe
@@ -68,24 +72,28 @@ public sealed class InterpolatorTests
         Extension = new Vector3(0.758f, 0.219f, 0.451f),
         BendNormal = new Vector3(0.583f, 0.721f, 0.643f),
         TipNormal = new Vector3(0.47f, 0.615f, 0.569f),
+        TipLength = 0.703f,
       },
       RightArm = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.6f, 0.695f, 0.467f),
         BendNormal = new Vector3(0.296f, 0.15f, 0.49f),
         TipNormal = new Vector3(0.773f, 0.615f, 0.151f),
+        TipLength = 0.982f,
       },
       LeftLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.299f, 0.602f, 0.822f),
         BendNormal = new Vector3(0.507f, 0.315f, 0.239f),
         TipNormal = new Vector3(0.647f, 0.687f, 0.549f),
+        TipLength = 0.635f,
       },
       RightLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0.676f, 0.879f, 0.689f),
         BendNormal = new Vector3(0.567f, 0.923f, 0.42f),
         TipNormal = new Vector3(0.204f, 0.152f, 0.395f),
+        TipLength = 0.056f,
       },
     };
     var interpolator = new Interpolator();
@@ -104,14 +112,18 @@ public sealed class InterpolatorTests
     Assert.AreEqual(new Vector3(0.69347f, 0.40853998f, 0.48043f), actual.LeftArm.Extension);
     Assert.AreEqual(new Vector3(0.4843108f, 0.6012555f, 0.6355587f), actual.LeftArm.BendNormal);
     Assert.AreEqual(new Vector3(0.49494517f, 0.6595164f, 0.565745f), actual.LeftArm.TipNormal);
+    Assert.AreEqual(0.61471f, actual.LeftArm.TipLength);
     Assert.AreEqual(new Vector3(0.50766003f, 0.53300005f, 0.5885f), actual.RightArm.Extension);
     Assert.AreEqual(new Vector3(0.63855106f, 0.2805022f, 0.7166387f), actual.RightArm.BendNormal);
     Assert.AreEqual(new Vector3(0.69627917f, 0.6528028f, 0.2984019f), actual.RightArm.TipNormal);
+    Assert.AreEqual(0.81406f, actual.RightArm.TipLength);
     Assert.AreEqual(new Vector3(0.36947f, 0.66653f, 0.71076006f), actual.LeftLeg.Extension);
     Assert.AreEqual(new Vector3(0.8068822f, 0.46634987f, 0.3625727f), actual.LeftLeg.BendNormal);
     Assert.AreEqual(new Vector3(0.57777053f, 0.64615935f, 0.49865755f), actual.LeftLeg.TipNormal);
+    Assert.AreEqual(0.5972f, actual.LeftLeg.TipLength);
     Assert.AreEqual(new Vector3(0.49375004f, 0.89493f, 0.67253006f), actual.RightLeg.Extension);
     Assert.AreEqual(new Vector3(0.5516578f, 0.77256817f, 0.31434414f), actual.RightLeg.BendNormal);
     Assert.AreEqual(new Vector3(0.48230338f, 0.44967988f, 0.75177884f), actual.RightLeg.TipNormal);
+    Assert.AreEqual(0.14888f, actual.RightLeg.TipLength);
   }
 }

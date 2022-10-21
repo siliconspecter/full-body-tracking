@@ -16,6 +16,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0.724f, -0.407f, 0.360f),
       BendNormal = new Vector3(-0.788f, 0.219f, 0.685f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {
@@ -42,6 +43,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0.724f, -0.407f, 0.360f),
       BendNormal = new Vector3(0.724f, -0.407f, 0.360f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {
@@ -68,6 +70,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0, 0, 0),
       BendNormal = new Vector3(-0.788f, 0.219f, 0.685f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {
@@ -94,6 +97,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0.724f, -0.407f, 1.360f),
       BendNormal = new Vector3(-0.788f, 0.219f, 0.685f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {
@@ -120,6 +124,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0, 10, 0),
       BendNormal = new Vector3(-0.788f, 0.219f, 0.685f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {
@@ -146,6 +151,7 @@ public sealed class LimbInverseKinematicsCalculatorTests
       Extension = new Vector3(0, -10, 0),
       BendNormal = new Vector3(-0.788f, 0.219f, 0.685f),
       TipNormal = new Vector3(-0.462f, 0.425f, -0.356f),
+      TipLength = 0.376f,
     };
     var bindPoseLimb = new BindPoseLimb
     {

@@ -79,24 +79,28 @@ namespace SiliconSpecter.FullBodyTracking.Common
         Extension = new Vector3(0, -1, 0),
         BendNormal = new Vector3(0, 0, -1),
         TipNormal = new Vector3(0, -1, 0),
+        TipLength = 0.15f,
       },
       RightArm = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0, -1, 0),
         BendNormal = new Vector3(0, 0, -1),
         TipNormal = new Vector3(0, -1, 0),
+        TipLength = 0.15f,
       },
       LeftLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0, -1, 0),
         BendNormal = new Vector3(0, 0, 1),
         TipNormal = new Vector3(0, 0, 1),
+        TipLength = 0.2f,
       },
       RightLeg = new InterpolatablePlayerKeyframeLimb
       {
         Extension = new Vector3(0, -1, 0),
         BendNormal = new Vector3(0, 0, 1),
         TipNormal = new Vector3(0, 0, 1),
+        TipLength = 0.2f,
       }
     };
   }
