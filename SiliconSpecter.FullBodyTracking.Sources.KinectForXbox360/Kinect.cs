@@ -541,6 +541,26 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       }
     }
 
+    private static bool IsInferredOrUntracked(Internals.Interop.Kinect10.Skeleton skeleton, Joint joint)
+    {
+      var jointIndex = (int)joint;
+
+      var status = skeleton.JointStatuses[jointIndex];
+
+      switch (status)
+      {
+        case JointStatus.NotTracked:
+        case JointStatus.Inferred:
+          return true;
+
+        case JointStatus.Tracked:
+          return false;
+
+        default:
+          throw new Exception($"Unimplemented joint status \"{status}\".");
+      }
+    }
+
     private static Limb ExtractLimb(Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
     {
       var intermediatePosition = GetJointPositionIfAvailable(skeleton, intermediateJoint);
@@ -549,6 +569,11 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
 
       // If the hand is pointing at the camera this data becomes very jittery and we're better off not trying to use it.
       if (distalPosition.HasValue && intermediatePosition.HasValue && Vector3.Normalize(distalPosition.Value - intermediatePosition.Value).Z < -0.85f)
+      {
+        tipPosition = null;
+      }
+
+      if (IsInferredOrUntracked(skeleton, distalJoint) || IsInferredOrUntracked(skeleton, tipJoint))
       {
         tipPosition = null;
       }
