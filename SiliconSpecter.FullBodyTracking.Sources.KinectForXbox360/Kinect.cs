@@ -427,10 +427,10 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                         HeadUpNormal = headUpNormal,
                         HeadForwardNormal = headForwardNormal,
                         FacialAnimation = facialAnimation,
-                        LeftArm = ExtractLimb(skeleton, leftShoulder.Value, Joint.LeftElbow, Joint.LeftWrist, Joint.LeftMiddleFingertip),
-                        RightArm = ExtractLimb(skeleton, rightShoulder.Value, Joint.RightElbow, Joint.RightWrist, Joint.RightMiddleFingertip),
-                        LeftLeg = ExtractLimb(skeleton, leftHip.Value, Joint.LeftKnee, Joint.LeftAnkle, Joint.LeftMiddleToeTip),
-                        RightLeg = ExtractLimb(skeleton, rightHip.Value, Joint.RightKnee, Joint.RightAnkle, Joint.RightMiddleToeTip),
+                        LeftArm = ExtractLimb(skeleton, leftShoulder.Value, Joint.LeftElbow, Joint.LeftWrist, Joint.LeftMiddleFingertip, 0.8f),
+                        RightArm = ExtractLimb(skeleton, rightShoulder.Value, Joint.RightElbow, Joint.RightWrist, Joint.RightMiddleFingertip, 0.8f),
+                        LeftLeg = ExtractLimb(skeleton, leftHip.Value, Joint.LeftKnee, Joint.LeftAnkle, Joint.LeftMiddleToeTip, 0.0f),
+                        RightLeg = ExtractLimb(skeleton, rightHip.Value, Joint.RightKnee, Joint.RightAnkle, Joint.RightMiddleToeTip, 0.0f),
                       },
                     };
                   }
@@ -561,19 +561,38 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
       }
     }
 
-    private static Limb ExtractLimb(Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint)
+    private static Limb ExtractLimb(Skeleton skeleton, Vector3 proximalPosition, Joint intermediateJoint, Joint distalJoint, Joint tipJoint, float discardTipBelow)
     {
       var intermediatePosition = GetJointPositionIfAvailable(skeleton, intermediateJoint);
       var distalPosition = GetJointPositionIfAvailable(skeleton, distalJoint);
       var tipPosition = GetJointPositionIfAvailable(skeleton, tipJoint);
 
-      // If the hand is pointing at the camera this data becomes very jittery and we're better off not trying to use it.
-      if (distalPosition.HasValue && intermediatePosition.HasValue && Vector3.Normalize(distalPosition.Value - intermediatePosition.Value).Z < -0.85f)
+      // If the limb is pointing directly at the camera the depth data becomes very rough and is often not worth using.
+      if (distalPosition.HasValue && Vector3.Normalize(distalPosition.Value - proximalPosition).Z < -0.85f)
+      {
+        // The wrist and fingertip are equally suspect so average them to try and damp the noise a bit.
+        if (tipPosition.HasValue)
+        {
+          distalPosition = (distalPosition.Value + tipPosition.Value) / 2.0f;
+        }
+
+        tipPosition = null;
+        intermediatePosition = null;
+      }
+
+      // We're better off not trying to use inferred data if possible.
+      if (IsInferredOrUntracked(skeleton, intermediateJoint) || IsInferredOrUntracked(skeleton, distalJoint))
+      {
+        intermediatePosition = null;
+      }
+
+      if (IsInferredOrUntracked(skeleton, distalJoint) || IsInferredOrUntracked(skeleton, tipJoint))
       {
         tipPosition = null;
       }
 
-      if (IsInferredOrUntracked(skeleton, distalJoint) || IsInferredOrUntracked(skeleton, tipJoint))
+      // If hands are very twisted something has probably gone wrong with their tracking and we shouldn't try to use it.
+      if (intermediatePosition.HasValue && distalPosition.HasValue && tipPosition.HasValue && Vector3.Dot(Vector3.Normalize(tipPosition.Value - distalPosition.Value), Vector3.Normalize(distalPosition.Value - intermediatePosition.Value)) < discardTipBelow)
       {
         tipPosition = null;
       }
