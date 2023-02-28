@@ -134,8 +134,8 @@ public sealed class InverseKinematicsCalculatorTests
     var actual = inverseKinematicsCalculator.Calculate(keyframe, bindPose);
 
     Assert.AreEqual(23.560799, actual.HipsY, 0.0001);
-    Assert.AreEqual(new Quaternion(0.20546497f, -0.7608809f, -0.6142645f, 0.03903252f), actual.HipsRotation);
-    Assert.AreEqual(new Quaternion(0.1901043f, -0.48684114f, -0.8462552f, -0.103431895f), actual.ShoulderBone);
+    Assert.AreEqual(new Quaternion(-0.052647516f, -0.9274902f, -0.36805812f, 0.03903252f), actual.HipsRotation);
+    Assert.AreEqual(new Quaternion(-0.219598f, -0.968671f, -0.052487105f, -0.103431895f), actual.ShoulderBone);
     Assert.AreEqual(inverseKinematicsLeftArm, actual.LeftArm);
     Assert.AreEqual(inverseKinematicsRightArm, actual.RightArm);
     Assert.AreEqual(inverseKinematicsLeftLeg, actual.LeftLeg);
@@ -263,8 +263,8 @@ public sealed class InverseKinematicsCalculatorTests
     var actual = inverseKinematicsCalculator.Calculate(keyframe, bindPose);
 
     Assert.AreEqual(23.560799, actual.HipsY, 0.0001);
-    Assert.AreEqual(new Quaternion(0.20546497f, -0.7608809f, -0.6142645f, 0.03903252f), actual.HipsRotation);
-    Assert.AreEqual(new Quaternion(0.1901043f, -0.48684114f, -0.8462552f, -0.103431895f), actual.ShoulderBone);
+    Assert.AreEqual(new Quaternion(-0.052647516f, -0.9274902f, -0.36805812f, 0.03903252f), actual.HipsRotation);
+    Assert.AreEqual(new Quaternion(-0.219598f, -0.968671f, -0.052487105f, -0.103431895f), actual.ShoulderBone);
     Assert.AreEqual(inverseKinematicsLeftArm, actual.LeftArm);
     Assert.AreEqual(inverseKinematicsRightArm, actual.RightArm);
     Assert.AreEqual(inverseKinematicsLeftLeg, actual.LeftLeg);

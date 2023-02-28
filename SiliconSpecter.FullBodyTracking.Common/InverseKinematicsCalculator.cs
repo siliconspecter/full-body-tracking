@@ -29,8 +29,8 @@ namespace SiliconSpecter.FullBodyTracking.Common
       return new InverseKinematics
       {
         HipsY = Math.Max(leftLegLength, rightLegLength),
-        HipsRotation = keyframe.HipsRotation * keyframe.FacingRotation,
-        ShoulderBone = keyframe.ShouldersRotation * keyframe.FacingRotation,
+        HipsRotation = keyframe.FacingRotation * keyframe.HipsRotation,
+        ShoulderBone = keyframe.FacingRotation * keyframe.ShouldersRotation,
         LeftArm = LimbInverseKinematicsCalculator.Calculate(keyframe.FacingRotation, keyframe.LeftArm, bindPose.LeftArm, 0),
         RightArm = LimbInverseKinematicsCalculator.Calculate(keyframe.FacingRotation, keyframe.RightArm, bindPose.RightArm, (float)Math.PI),
         LeftLeg = LimbInverseKinematicsCalculator.Calculate(keyframe.FacingRotation, keyframe.LeftLeg, bindPose.LeftLeg, (float)Math.PI / 2),

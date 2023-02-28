@@ -376,9 +376,9 @@ namespace SiliconSpecter.FullBodyTracking.Sources.KinectForXbox360
                     {
                       result.Get3DPose(out var scale, out var rotation, out var translation);
 
-                      var pitch = Math.PI * rotation.X / -180.0;
+                      var pitch = Math.PI * (rotation.X / 180.0 + 0.25);
                       var yaw = Math.PI * (180 - rotation.Y) / 180.0;
-                      var roll = Math.PI * (rotation.Z) / 180.0;
+                      var roll = Math.PI * rotation.Z / -180.0;
 
                       var headRotation = Quaternion.Identity;
 

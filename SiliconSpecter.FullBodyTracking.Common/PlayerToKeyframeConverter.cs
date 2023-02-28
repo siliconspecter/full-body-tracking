@@ -80,8 +80,8 @@ namespace SiliconSpecter.FullBodyTracking.Common
 
       previousKeyframe.FacingRotation = Miscellaneous.LookAt(Vector3.Normalize(Vector3.Lerp(hipsForwardNormal, shouldersForwardNormal, 0.5f) * new Vector3(1, 0, 1)), new Vector3(0, 1, 0));
 
-      previousKeyframe.HipsRotation /= previousKeyframe.FacingRotation;
-      previousKeyframe.ShouldersRotation /= previousKeyframe.FacingRotation;
+      previousKeyframe.HipsRotation = previousKeyframe.FacingRotation / previousKeyframe.HipsRotation;
+      previousKeyframe.ShouldersRotation = previousKeyframe.FacingRotation / previousKeyframe.ShouldersRotation;
 
       var inverseFacingRotation = Quaternion.Inverse(previousKeyframe.FacingRotation);
 

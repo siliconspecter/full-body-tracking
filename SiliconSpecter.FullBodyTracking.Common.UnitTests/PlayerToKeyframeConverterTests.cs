@@ -574,8 +574,8 @@ public sealed class PlayerToKeyframeConverterTests
     Assert.AreEqual(0.721f, actual.FacialAnimation.JawLowered);
     Assert.AreEqual(0.203f, actual.FacialAnimation.MouthWidth);
     Assert.AreEqual(new Vector3(-3.2794166f, -45.326576f, -0.8503135f), actual.Position);
-    Assert.AreEqual(new Quaternion(-0.2527676f, 0.54571784f, -0.78534234f, 0.14675854f), actual.HipsRotation);
-    Assert.AreEqual(new Quaternion(0.7508658f, 0.21950011f, -0.308128f, -0.5413663f), actual.ShouldersRotation);
+    Assert.AreEqual(new Quaternion(0.2527676f, -0.54571784f, 0.78534234f, 0.14675854f), actual.HipsRotation);
+    Assert.AreEqual(new Quaternion(-0.7508658f, -0.21950011f, 0.308128f, -0.5413663f), actual.ShouldersRotation);
     Assert.AreEqual(convertedHead, actual.HeadRotation);
     Assert.AreEqual(new Quaternion(0, 0.9326091f, 0, 0.3608883f), actual.FacingRotation);
     Assert.AreEqual(convertedLeftArm, actual.LeftArm);
@@ -736,8 +736,8 @@ public sealed class PlayerToKeyframeConverterTests
     Assert.AreEqual(0.484f, actual.FacialAnimation.JawLowered);
     Assert.AreEqual(0.513f, actual.FacialAnimation.MouthWidth);
     Assert.AreEqual(new Vector3(-3.2794166f, -45.326576f, -0.8503135f), actual.Position);
-    Assert.AreEqual(new Quaternion(-0.2527676f, 0.54571784f, -0.78534234f, 0.14675854f), actual.HipsRotation);
-    Assert.AreEqual(new Quaternion(0.7508658f, 0.21950011f, -0.308128f, -0.5413663f), actual.ShouldersRotation);
+    Assert.AreEqual(new Quaternion(0.2527676f, -0.54571784f, 0.78534234f, 0.14675854f), actual.HipsRotation);
+    Assert.AreEqual(new Quaternion(-0.7508658f, -0.21950011f, 0.308128f, -0.5413663f), actual.ShouldersRotation);
     Assert.AreEqual(convertedHead, actual.HeadRotation);
     Assert.AreEqual(new Quaternion(0, 0.9326091f, 0, 0.3608883f), actual.FacingRotation);
     Assert.AreEqual(convertedLeftArm, actual.LeftArm);
